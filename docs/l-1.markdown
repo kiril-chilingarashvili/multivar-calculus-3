@@ -1,0 +1,72 @@
+---
+layout: page
+title: Parametrizing Surfaces - Part 1
+primary: true
+---
+
+## Big Picture
+
+In this lecture, we learned how to apply parametrizations to surfaces.  
+This extended the notion of parametric curves one dimension higher.
+
+---
+
+## Parametrizations
+
+Given a surface of the form  
+
+$$
+z = f(x,y),
+$$
+
+a common parameterization we used was  
+
+$$
+\begin{aligned}
+x &= x \\
+y &= y \\
+z &= f(x,y)
+\end{aligned} \tag{3.59}
+$$
+
+Note that parametrizations are not unique!  
+Just like there were many parametrizations of a curve (e.g.,  
+
+$$
+r(t) = (t, t, t)
+$$
+
+and  
+
+$$
+r(t) = (t^2, t^2, t^2)
+$$
+
+describe the same curve), there are many (actually an infinite number) ways to parametrize a surface.
+
+We also learned about cylindrical coordinates, where we would take the parametrization  
+
+$$
+\begin{aligned}
+x &= r \cos(\theta) \\
+y &= r \sin(\theta) \\
+z &= z
+\end{aligned} \tag{3.60}
+$$
+
+---
+
+In the next lecture, we will go over spherical coordinates.
+
+## Ask Yourself
+
+---
+
+**Question 1**  
+When might it be easier to use cylindrical coordinates?
+
+---
+
+**Question 2**  
+Given two parametrizations, how might you go from one parametrization to the other?  
+It might turn out that the parametrization you are using is hard to work with, so using a different one might make your life easier!
