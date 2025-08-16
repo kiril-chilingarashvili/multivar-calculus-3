@@ -1,0 +1,20 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    // {
+    //   "name": "hw_1_5",
+    //   "type": "debugpy",
+    //   "cwd": "${workspaceFolder}/docs/hw/homework1",
+    //   "request": "launch",
+    //   "module": "homework.stats",
+    //   "console": "integratedTerminal",
+    //   "args": [
+    //     "bignet",
+    //     "lower_precision"
+    //   ],
+    // },
+  ]
+}
