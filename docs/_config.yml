@@ -22,7 +22,7 @@ title: Multivariable Calculus 3 by MITx - Lecture Notes
 email: contact@refactorx.com
 description: >- # this means to ignore newlines until "baseurl:"
   Lecture notes for "Multivariable Calculus 3" course as taught at online MITx program
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/multivar-calculus-3" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  kiril-chilingarashvili
 encoding: UTF-8
