@@ -1,0 +1,52 @@
+---
+layout: page
+title: Parametrizing Surfaces - Part 2
+primary: true
+---
+
+## Big Picture
+
+In this lecture, we learned about the cross product and how to compute it, and how to compute surface integrals by summing small parallelograms together.
+
+---
+
+## Mechanics
+
+We learned a formula for the cross product, given by  
+
+$$
+\vec{v} \times \vec{w} = (v_2 w_3 - v_3w_2, \, v_3 w_1 - v_1 w_3, \, v_1 w_2 - v_2 w_1). \tag{3.136}
+$$
+
+This also has a determinant formulation:
+
+$$
+\vec{v} \times \vec{w} 
+= \det\begin{pmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+v_1 & v_2 & v_3 \\
+w_1 & w_2 & w_3
+\end{pmatrix}
+= (v_2w_3 - v_3w_2)\,\hat{i} + (v_3w_1 - v_1w_3)\,\hat{j} + (v_1w_2 - v_2w_1)\,\hat{k}. \tag{3.137}
+$$
+
+We also learned about parametrizing surfaces, and how these parametrizations came in handy when computing surface integrals. We have the formula:
+
+$$
+\iint_R dA 
+= \iint_R \left\lVert \frac{\partial \vec{r}}{\partial u} \times \frac{\partial \vec{r}}{\partial v} \right\rVert du \, dv
+= \text{Area of } R. \tag{3.138}
+$$
+
+---
+
+## Ask Yourself
+
+**Question 1**  
+Remember how we always chose an orientation for our line integrals?  
+What do you think happens when we take the *opposite* orientation?
+
+---
+
+**Question 2**  
+Can you relate these surface integrals to integrals you've done in the past (i.e. line integrals and standard integrals)?

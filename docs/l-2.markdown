@@ -1,0 +1,89 @@
+---
+layout: page
+title: Parametrizing Surfaces - Part 2
+primary: true
+---
+
+## Spheres
+
+We can parametrize a sphere by (using the physics / ISO convention, see below for the mathematics convention):
+
+$$
+\begin{aligned}
+x(\phi, \theta) &= r \cos(\phi) \sin(\theta) \\
+y(\phi, \theta) &= r \sin(\phi) \sin(\theta) \\
+z(\phi, \theta) &= r \cos(\theta)
+\end{aligned} \tag{3.80}
+$$
+
+We can also create a system of mutually orthogonal unit vectors in this system:
+
+$$
+\begin{aligned}
+\hat{r} &= \big( \cos(\phi)\sin(\theta), \, \sin(\phi)\sin(\theta), \, \cos(\theta) \big) \\
+        &= \cos(\phi)\sin(\theta)\,\hat{x} + \sin(\phi)\sin(\theta)\,\hat{y} + \cos(\theta)\,\hat{z} \\
+\\
+\hat{\phi} &= \big(-\sin(\phi), \, \cos(\phi), \, 0 \big) \\
+           &= -\sin(\phi)\,\hat{x} + \cos(\phi)\,\hat{y} \\
+\\
+\hat{\theta} &= \big(\cos(\theta)\cos(\phi), \, \cos(\theta)\sin(\phi), \, -\sin(\theta) \big) \\
+             &= \cos(\theta)\cos(\phi)\,\hat{x} + \cos(\theta)\sin(\phi)\,\hat{y} - \sin(\theta)\,\hat{z}
+\end{aligned} \tag{3.81}
+$$
+
+There are two equally common notations for spherical coordinates.  
+The physics / ISO standard convention uses **θ** for the zenith angle and **φ** for the azimuth.  
+The mathematics convention swaps this. Both systems use either *r* or *ρ* for the radius, and both are commonly used. You will encounter both on MITx.
+
+---
+
+### The mathematics convention goes as follows:
+
+$$
+\begin{aligned}
+x(\theta, \phi) &= r \cos(\theta)\sin(\phi) \\
+y(\theta, \phi) &= r \sin(\theta)\sin(\phi) \\
+z(\theta, \phi) &= r \cos(\phi)
+\end{aligned} \tag{3.82}
+$$
+
+Corresponding orthogonal unit vectors:
+
+$$
+\begin{aligned}
+\hat{r} &= \big( \cos(\theta)\sin(\phi), \, \sin(\theta)\sin(\phi), \, \cos(\phi) \big) \\
+        &= \cos(\theta)\sin(\phi)\,\hat{x} + \sin(\theta)\sin(\phi)\,\hat{y} + \cos(\phi)\,\hat{z} \\
+\\
+\hat{\theta} &= \big(-\sin(\theta), \, \cos(\theta), \, 0 \big) \\
+             &= -\sin(\theta)\,\hat{x} + \cos(\theta)\,\hat{y} \\
+\\
+\hat{\phi} &= \big(\cos(\phi)\cos(\theta), \, \cos(\phi)\sin(\theta), \, -\sin(\phi) \big) \\
+           &= \cos(\phi)\cos(\theta)\,\hat{x} + \cos(\phi)\sin(\theta)\,\hat{y} - \sin(\phi)\,\hat{z}
+\end{aligned} \tag{3.83}
+$$
+
+---
+
+### A Word of Caution
+
+Most of this course will use the **mathematics convention**  
+\((r, \theta, \phi)\), where **θ** is the azimuth angle and **φ** is the zenith angle.  
+
+A handful of problems and discussions use the physics convention (as seen in the lecture and summary above), but we will always state explicitly when this is the case.  
+
+⚠️ Many online articles (e.g., Wikipedia) and most physics textbooks use the physics / ISO standard instead, so be careful. Always double-check which variables are being used when working in spherical coordinates.
+
+---
+
+## Möbius Strips
+
+A Möbius strip can be made by taking a piece of paper, twisting it, and gluing the sides.  
+This gives us a means of parametrizing the object:
+
+$$
+\begin{aligned}
+x(u, v) &= \left(1 + \frac{v}{2} \cos\left(\frac{u}{2}\right)\right)\cos(u) \\
+y(u, v) &= \left(1 + \frac{v}{2} \cos\left(\frac{u}{2}\right)\right)\sin(u) \\
+z(u, v) &= \frac{v}{2} \sin\left(\frac{u}{2}\right)
+\end{aligned} \tag{3.84}
+$$
