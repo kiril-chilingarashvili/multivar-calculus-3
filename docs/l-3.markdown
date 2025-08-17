@@ -50,3 +50,30 @@ What do you think happens when we take the *opposite* orientation?
 
 **Question 2**  
 Can you relate these surface integrals to integrals you've done in the past (i.e. line integrals and standard integrals)?
+
+## Cross Product: Algebraic Properties
+
+In fact, the general cross product is completely determined by the cross product for standard unit vectors computed above, by virtue of the fact that cross product has the property of **bilinearity**:
+
+---
+
+### Theorem 3
+
+If $\vec{u}, \vec{v},$ and $\vec{w}$ are vectors in $\mathbb{R}^3$, and if $a$ and $b$ are real numbers, then:
+
+$$
+(a \vec{u} + b \vec{v}) \times \vec{w} \;=\; a (\vec{u} \times \vec{w}) + b (\vec{v} \times \vec{w})
+$$
+
+$$
+\vec{w} \times (a \vec{u} + b \vec{v}) \;=\; a (\vec{w} \times \vec{u}) + b (\vec{w} \times \vec{v}) \tag{3.100}
+$$
+
+---
+
+Indeed, learners are encouraged to carry out the computational exercise of using bilinearity to derive, from the cross products between $\hat{i}, \hat{j},$ and $\hat{k}$, the general formula in our definition:
+
+$$
+(u_1 \hat{i} + u_2 \hat{j} + u_3 \hat{k}) \times (v_1 \hat{i} + v_2 \hat{j} + v_3 \hat{k})
+= (u_2 v_3 - u_3 v_2)\,\hat{i} \;-\; (u_1 v_3 - u_3 v_1)\,\hat{j} \;+\; (u_1 v_2 - u_2 v_1)\,\hat{k} \tag{3.101}
+$$
