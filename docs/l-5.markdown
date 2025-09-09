@@ -1,0 +1,317 @@
+# Flux Through a Surface — Graphs and Parametrizations
+
+This lecture explores the concept of **flux through a surface** in three dimensions and develops several methods for evaluating **surface integrals** in different settings.
+
+## Objectives
+
+By the end of this lecture and recitation, you will be able to:
+
+- **Compute Flux over Graph‑Defined Surfaces:** Learn how to compute the flux of a vector field through a surface defined as $z=f(x,y)$.
+- **Apply Parametrization in Surface Integrals:** Develop the ability to compute flux through surfaces given parametrically.
+- **Use Normal Vectors for Implicit Surfaces:** Understand how to compute flux through implicitly defined surfaces (e.g., $ax+by+cz=d$) by using the known normal vector.
+
+---
+
+## Surfaces Given as Graphs: $z=f(x,y)$
+
+So far we have considered flux integrals over spheres and cylinders, but real‑world surfaces can be much more general. Suppose we are given a surface defined as the graph of a function:
+
+$$
+z=f(x,y). \qquad (4.73)
+$$
+
+This equation describes the shape of the surface over which we are computing the flux, but it does not change the vector field itself.
+
+To compute the flux integral, we need both the **unit normal vector** $\hat{\mathbf n}$ and the **surface area element** $dS$. Rather than treating them separately, we derive a convenient combined expression for $\hat{\mathbf n}\,dS$.
+
+Because the surface is given in terms of $x$ and $y$, we express all relevant quantities using these variables. The key formula, derived below, is
+
+$$
+\hat{\mathbf n}\,dS=\pm\!\left(-\frac{\partial f}{\partial x},-\frac{\partial f}{\partial y},1\right)\,dx\,dy
+= \pm\,(-f_x,\,-f_y,\,1)\,dx\,dy. \qquad (4.74)
+$$
+
+If we need the magnitude of $dS$ separately, it is given by
+$$
+dS=\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^{\!2}+\left(\frac{\partial f}{\partial y}\right)^{\!2}}\,dx\,dy
+= \sqrt{1+f_x^2+f_y^2}\,dx\,dy. \qquad (4.75)
+$$
+
+The **unit normal vector** is obtained by normalizing:
+$$
+\hat{\mathbf n}=\pm\,\frac{(-f_x,-f_y,1)}{\sqrt{1+f_x^2+f_y^2}}. \qquad (4.76)
+$$
+
+Note that the resulting formula for $\hat{\mathbf n}\,dS$ shows **neither** $\hat{\mathbf n}$ nor $dS$ explicitly:
+$$
+\hat{\mathbf n}\,dS=\pm(-f_x,-f_y,1)\,dx\,dy. \qquad (4.77)
+$$
+
+This formulation also simplifies the flux integral by reducing it to an integral over $x$ and $y$, since $z$ can be written in terms of those variables. Once all $z$ terms have been eliminated, we find the appropriate limits of integration for $x$ and $y$ by determining the **shadow** or **projection** of the surface $S$ onto the $xy$‑plane.
+
+---
+
+## Deriving the Formula
+
+To derive
+$$
+\hat{\mathbf n}\,dS=\pm(-f_x,-f_y,1)\,dx\,dy, \qquad (4.78)
+$$
+consider a small rectangle in the $xy$‑plane with sides $\Delta x$ and $\Delta y$. The corresponding piece of the surface above this rectangle is nearly a parallelogram. Define the two vectors spanning this parallelogram as
+$$
+\mathbf U=(\Delta x,0,f_x\,\Delta x)=(1,0,f_x)\,\Delta x, \qquad (4.79)
+$$
+and
+$$
+\mathbf V=(0,\Delta y,f_y\,\Delta y)=(0,1,f_y)\,\Delta y. \qquad (4.80)
+$$
+
+Taking their cross product, we have
+$$
+\mathbf U\times\mathbf V=
+\begin{vmatrix}
+\mathbf i & \mathbf j & \mathbf k\\[2pt]
+1 & 0 & f_x\\
+0 & 1 & f_y
+\end{vmatrix}\,\Delta x\,\Delta y
+= (-f_x,-f_y,1)\,\Delta x\,\Delta y. \qquad (4.81)
+$$
+
+Since this cross product gives both the normal direction and the area element, we conclude
+$$
+\hat{\mathbf n}\,dS=\pm(-f_x,-f_y,1)\,dx\,dy. \qquad (4.82)
+$$
+The sign choice depends on whether we want the normal vector to point up or down (i.e., the chosen orientation).
+
+---
+
+## Special Case: Horizontal Plane
+
+If the surface is a horizontal plane $z=c$, then $f_x=0$ and $f_y=0$, reducing the formula to
+$$
+dS=dx\,dy,
+$$
+as expected.
+
+This formula is a useful tool for flux integrals over graph‑defined surfaces. While understanding the derivation is helpful, memorizing the result is often sufficient for practical applications.
+
+---
+
+## Example: Flux of $\mathbf F=(0,0,z)$ through a Paraboloid
+
+Consider the vector field $\mathbf F=(0,0,z)$ and compute its flux through the portion of the surface $S$ given by the paraboloid $z=x^2+y^2$, restricted to the region lying above the unit disk $D$ in the $xy$‑plane, where $x^2+y^2\le 1$. We orient the surface with an upward‑pointing unit normal vector $\hat{\mathbf n}$.
+
+The flux of $\mathbf F$ through $S$ is the surface integral
+$$
+\iint_S \mathbf F\cdot \hat{\mathbf n}\,dS. \qquad (4.86)
+$$
+
+Since the surface is expressed as $z=f(x,y)$ with $f(x,y)=x^2+y^2$, the surface element (with positive/upward orientation) is
+$$
+\hat{\mathbf n}\,dS=(-f_x,-f_y,1)\,dx\,dy=(-2x,-2y,1)\,dx\,dy. \qquad (4.87)
+$$
+
+Taking the dot product with $\mathbf F=(0,0,z)$, we find
+$$
+\mathbf F\cdot \hat{\mathbf n}\,dS=z\,dx\,dy. \qquad (4.88)
+$$
+
+To evaluate the integral over the surface $S$, substitute $z=x^2+y^2$, which yields
+$$
+\iint_D (x^2+y^2)\,dx\,dy. \qquad (4.89)
+$$
+
+Convert to polar coordinates using $x=r\cos\theta$, $y=r\sin\theta$, and $dx\,dy=r\,dr\,d\theta$:
+$$
+\iint_D r^2\cdot r\,dr\,d\theta=\int_{0}^{2\pi}\!\! d\theta\int_{0}^{1} r^3\,dr. \qquad (4.90)
+$$
+
+Evaluating the iterated integral,
+$$
+\int_{0}^{2\pi}\! d\theta\int_{0}^{1} r^3\,dr
+=2\pi\left[\frac{r^4}{4}\right]_{0}^{1}
+=\frac{\pi}{2}. \qquad (4.91)
+$$
+
+Therefore, the total flux of the vector field $\mathbf F$ through the surface $S$ is $\boxed{\pi/2}$.
+
+---
+
+## Parametrized Surfaces
+
+While many flux problems can be handled using surfaces defined as $z=f(x,y)$, some surfaces are more effectively described **parametrically** — that is, by expressing each coordinate $x,y,z$ in terms of two independent parameters. In such cases, represent the surface $S$ using a position vector
+$$
+\vec r(u,v)=\big(x(u,v),\,y(u,v),\,z(u,v)\big). \qquad (4.92)
+$$
+
+To compute the flux of a vector field $\mathbf F$ through a surface $S$, evaluate the surface integral
+$$
+\iint_S \mathbf F\cdot \hat{\mathbf n}\,dS. \qquad (4.93)
+$$
+
+To express $\hat{\mathbf n}\,dS$ in terms of the parameters $u$ and $v$, we find a formula that captures both the **direction** (the normal vector) and the **magnitude** (the area element) of each small region on the surface. The needed differential element is
+$$
+\hat{\mathbf n}\,dS=\left(\frac{\partial \vec r}{\partial u}\times\frac{\partial \vec r}{\partial v}\right)\,du\,dv. \qquad (4.94)
+$$
+
+Intuitively, start with a small rectangle in the $uv$‑plane and map it to the surface using the parametrization $\vec r(u,v)$. This produces a region on the surface that is nearly a parallelogram, spanned by the tangent vectors
+$$
+\frac{\partial \vec r}{\partial u}\,\Delta u \quad \text{and}\quad \frac{\partial \vec r}{\partial v}\,\Delta v. \qquad (4.95)
+$$
+
+In the limit, we obtain the surface element
+$$
+\hat{\mathbf n}\,dS=\pm\left(\frac{\partial \vec r}{\partial u}\times\frac{\partial \vec r}{\partial v}\right)\,du\,dv, \qquad (4.96)
+$$
+where the orientation of the surface determines the sign of the cross product.
+
+### Validation Examples
+
+1. **Graph of a function $z=f(x,y)$:** Let $x=u$, $y=v$, and $z=f(u,v)$. Then the position vector is
+   $$
+   \vec r(u,v)=(u,\,v,\,f(u,v)). \qquad (4.97)
+   $$
+   Computing the cross product yields the same expression for $\hat{\mathbf n}\,dS$ that we derived for graph surfaces.
+
+2. **Sphere of radius $a$:** Parametrize the sphere using spherical‑type coordinates
+   $$
+   x=a\sin\phi\cos\theta,\qquad
+   y=a\sin\phi\sin\theta,\qquad
+   z=a\cos\phi. \qquad (4.98)
+   $$
+   This gives the position vector
+   $$
+   \vec r(\phi,\theta)=\big(x(\phi,\theta),\,y(\phi,\theta),\,z(\phi,\theta)\big). \qquad (4.99)
+   $$
+   Applying the same cross‑product method produces the appropriate expression for $\hat{\mathbf n}\,dS$ (algebraic details omitted here).
+
+
+---
+
+## Implicitly Defined Surfaces and Projection Method
+
+In many cases, a surface in three-dimensional space is not given by a parametrization or an explicit expression such as $z=f(x,y)$. Instead, the surface may be defined **implicitly** as the set of all points $(x,y,z)$ satisfying an equation involving all three variables. A common example is a **level surface** of a scalar-valued function, given by $g(x,y,z)=0$, such as in particular a plane defined by a linear equation $ax+by+cz=d$.
+
+One advantage of this implicit formulation is that a **normal vector** to the surface is often readily available. For instance:
+
+- If the surface is a plane $ax+by+cz=d$, then $\vec N=(a,b,c)$ is a constant normal vector at every point.
+- If the surface is a level surface $g(x,y,z)=0$, then the **gradient** of $g$ provides the normal vector:
+  $$
+  \vec N=\nabla g=\left(\frac{\partial g}{\partial x},\frac{\partial g}{\partial y},\frac{\partial g}{\partial z}\right). \qquad (4.119)
+  $$
+
+To derive an expression for the surface element vector $\hat{\mathbf n}\,dS$, consider a small section of surface area $\Delta S$ and imagine projecting it vertically down onto the $xy$-plane. The resulting region in the plane has area $\Delta A$.
+
+Because our surface is tilted with respect to the horizontal plane, $\Delta A$ will typically be smaller than $\Delta S$. If the surface is horizontal, $\Delta S$ projects without shrinking and $\Delta A=\Delta S$. If the surface is steeply slanted, $\Delta A$ becomes much smaller than $\Delta S$.
+
+Let $\alpha$ be the angle between the surface plane and the horizontal plane. A simple geometric argument shows
+$$
+\Delta A=\Delta S\cos(\alpha). \qquad (4.120)
+$$
+Solving for $\Delta S$, we obtain
+$$
+\Delta S=\frac{1}{\cos(\alpha)}\,\Delta A. \qquad (4.121)
+$$
+
+Recalling that the angle between two planes equals the angle between their normal vectors, we can express $\cos(\alpha)$ in terms of the normal vector $\vec N$:
+$$
+\cos(\alpha)=\frac{\vec N\cdot \hat{\mathbf k}}{\lVert \vec N\rVert\,\lVert \hat{\mathbf k}\rVert}
+=\frac{\vec N\cdot \hat{\mathbf k}}{\lVert \vec N\rVert}, \qquad (4.122)
+$$
+since $\lVert\hat{\mathbf k}\rVert=1$. Substituting this into the expression for $\Delta S$ yields
+$$
+\Delta S=\frac{\lVert \vec N\rVert}{\vec N\cdot \hat{\mathbf k}}\;\Delta A. \qquad (4.123)
+$$
+
+Multiplying both sides by the unit normal $\hat{\mathbf n}$ and using $\hat{\mathbf n}\,\lVert \vec N\rVert=\vec N$, we get
+$$
+\hat{\mathbf n}\,\Delta S=\pm\frac{\vec N}{\vec N\cdot \hat{\mathbf k}}\;\Delta A. \qquad (4.124)
+$$
+(The sign depends on the chosen orientation.) Passing to the limit as $\Delta A\to 0$ gives the differential form
+$$
+\hat{\mathbf n}\,dS=\pm\frac{\vec N}{\vec N\cdot \hat{\mathbf k}}\;dA. \qquad (4.125)
+$$
+
+If we are projecting onto the $xy$-plane, then $dA=dx\,dy$, giving the final working formula
+$$
+\hat{\mathbf n}\,dS=\pm\frac{\vec N}{\vec N\cdot \hat{\mathbf k}}\;dx\,dy. \qquad (4.126)
+$$
+
+The same reasoning applies when projecting onto a different coordinate plane. Replace the vertical vector $\hat{\mathbf k}$ with the unit vector normal to the chosen projection plane, $\hat{\mathbf i}$ or $\hat{\mathbf j}$ as appropriate, and replace $dx\,dy$ with $dy\,dz$ or $dx\,dz$ accordingly.
+
+---
+
+## Connecting to $z=f(x,y)$ (as a Level Surface)
+
+As a special case, connect this projection method to what we derived earlier. Suppose the surface is given by
+$$
+z-f(x,y)=0. \qquad (4.131)
+$$
+This is equivalent to writing $z=f(x,y)$, but now the surface appears as the level set of
+$$
+g(x,y,z)=z-f(x,y)=0. \qquad (4.132)
+$$
+Using the gradient of $g$ as a normal vector,
+$$
+\vec N=\nabla g=\left(-\frac{\partial f}{\partial x},-\frac{\partial f}{\partial y},1\right). \qquad (4.133)
+$$
+Applying the projection formula,
+$$
+\hat{\mathbf n}\,dS=\frac{\vec N}{\vec N\cdot \hat{\mathbf k}}\;dx\,dy,
+$$
+and computing $\vec N\cdot \hat{\mathbf k}=1$, we recover
+$$
+\hat{\mathbf n}\,dS=\left(-\frac{\partial f}{\partial x},-\frac{\partial f}{\partial y},1\right)\,dx\,dy. \qquad (4.134)
+$$
+This matches the earlier result for graph surfaces $z=f(x,y)$ without explicitly solving for $z$ in other contexts.
+
+---
+
+## Preview: Divergence Theorem and Gauss’s Law
+
+In the next lecture we will explore the **divergence theorem** in detail. For now, note that it relates **volume integrals** to **surface integrals** where we integrate over the surface that encloses the given volume. Precisely, if $V\subset\mathbb R^3$ is a region bounded by a closed surface $S=\partial V$, then for a vector field $\mathbf F$ we have
+$$
+\iiint_V \nabla\!\cdot\!\mathbf F\,dV \;=\; \iint_{\partial V} \mathbf F\cdot d\mathbf a. \qquad (4.135)
+$$
+In arrow notation,
+$$
+\iiint_V \operatorname{div}(\vec F)\,dV \;=\; \iint_{\partial V}\vec F\cdot d\vec S. \qquad (4.136)
+$$
+
+This theorem has widespread applications in physics, especially electromagnetism. **Gauss’s law** states that, for an electric field $\mathbf E$, the charge density $\rho_{\mathrm{ch}}$ satisfies
+$$
+\nabla\!\cdot\!\mathbf E=\frac{\rho_{\mathrm{ch}}}{\varepsilon_0}, \qquad (4.137)
+$$
+where $\varepsilon_0$ is a constant (the permittivity of free space). The **total charge** in $V$ is
+$$
+Q=\iiint_V \rho_{\mathrm{ch}}\,dV
+= \varepsilon_0 \iiint_V \nabla\!\cdot\!\mathbf E\,dV \qquad (4.138)
+= \varepsilon_0 \iint_{\partial V}\mathbf E\cdot d\mathbf a
+= \varepsilon_0\,\Phi,
+$$
+where $\Phi$ denotes the **electric flux**. Equivalently,
+$$
+\Phi=\frac{Q}{\varepsilon_0}. \qquad (4.139)
+$$
+All of this is a direct application of the divergence theorem.
+
+---
+
+## Summary: Surface–Flux Formulas
+
+- **Flux over Graph-Defined Surfaces:** For surfaces defined as $z=f(x,y)$, use
+  $$
+  \hat{\mathbf n}\,dS=\pm\left(-\frac{\partial f}{\partial x},-\frac{\partial f}{\partial y},1\right)\,dx\,dy=\pm(-f_x,-f_y,1)\,dx\,dy. \qquad (4.141)
+  $$
+
+- **General Flux via Parametrized Surfaces:** For a parametrized surface $\vec r(u,v)=(x(u,v),y(u,v),z(u,v))$,
+  $$
+  \hat{\mathbf n}\,dS=\pm\left(\frac{\partial \vec r}{\partial u}\times\frac{\partial \vec r}{\partial v}\right)\,du\,dv. \qquad (4.142)
+  $$
+
+- **Implicitly Defined Surfaces:** If the surface is given implicitly (e.g., $g(x,y,z)=0$) and a normal $\vec N$ is known, then the surface element can be expressed via projection:
+  $$
+  \hat{\mathbf n}\,dS=\pm\frac{\vec N}{\vec N\cdot \hat{\mathbf k}}\;dx\,dy. \qquad (4.143)
+  $$
+
+Similar projection formulas apply when projecting onto other coordinate planes.
