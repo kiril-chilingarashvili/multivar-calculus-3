@@ -14,13 +14,19 @@ In this lecture, we learned about the cross product and how to compute it, and h
 
 We learned a formula for the cross product, given by  
 
+
 $$
+
 \vec{v} \times \vec{w} = (v_2 w_3 - v_3w_2, \, v_3 w_1 - v_1 w_3, \, v_1 w_2 - v_2 w_1). \tag{3.136}
+
 $$
+
 
 This also has a determinant formulation:
 
+
 $$
+
 \vec{v} \times \vec{w} 
 = \det\begin{pmatrix}
 \hat{i} & \hat{j} & \hat{k} \\
@@ -28,15 +34,21 @@ v_1 & v_2 & v_3 \\
 w_1 & w_2 & w_3
 \end{pmatrix}
 = (v_2w_3 - v_3w_2)\,\hat{i} + (v_3w_1 - v_1w_3)\,\hat{j} + (v_1w_2 - v_2w_1)\,\hat{k}. \tag{3.137}
+
 $$
+
 
 We also learned about parametrizing surfaces, and how these parametrizations came in handy when computing surface integrals. We have the formula:
 
+
 $$
+
 \iint_R dA 
 = \iint_R \left\lVert \frac{\partial \vec{r}}{\partial u} \times \frac{\partial \vec{r}}{\partial v} \right\rVert du \, dv
 = \text{Area of } R. \tag{3.138}
+
 $$
+
 
 ---
 
@@ -61,19 +73,30 @@ In fact, the general cross product is completely determined by the cross product
 
 If $\vec{u}, \vec{v},$ and $\vec{w}$ are vectors in $\mathbb{R}^3$, and if $a$ and $b$ are real numbers, then:
 
-$$
-(a \vec{u} + b \vec{v}) \times \vec{w} \;=\; a (\vec{u} \times \vec{w}) + b (\vec{v} \times \vec{w})
-$$
 
 $$
-\vec{w} \times (a \vec{u} + b \vec{v}) \;=\; a (\vec{w} \times \vec{u}) + b (\vec{w} \times \vec{v}) \tag{3.100}
+
+(a \vec{u} + b \vec{v}) \times \vec{w} \;=\; a (\vec{u} \times \vec{w}) + b (\vec{v} \times \vec{w})
+
 $$
+
+
+
+$$
+
+\vec{w} \times (a \vec{u} + b \vec{v}) \;=\; a (\vec{w} \times \vec{u}) + b (\vec{w} \times \vec{v}) \tag{3.100}
+
+$$
+
 
 ---
 
 Indeed, learners are encouraged to carry out the computational exercise of using bilinearity to derive, from the cross products between $\hat{i}, \hat{j},$ and $\hat{k}$, the general formula in our definition:
 
+
 $$
+
 (u_1 \hat{i} + u_2 \hat{j} + u_3 \hat{k}) \times (v_1 \hat{i} + v_2 \hat{j} + v_3 \hat{k})
 = (u_2 v_3 - u_3 v_2)\,\hat{i} \;-\; (u_1 v_3 - u_3 v_1)\,\hat{j} \;+\; (u_1 v_2 - u_2 v_1)\,\hat{k} \tag{3.101}
+
 $$

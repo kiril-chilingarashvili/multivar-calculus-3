@@ -19,31 +19,47 @@ By the end of this lecture and recitation, you will be able to:
 ## Divergence (Definition)
 
 Let the vector field be
-$$
-\vec F(x,y,z)=\big(P(x,y,z),\;Q(x,y,z),\;R(x,y,z)\big).
+
 $$
 
-The **divergence** of $\vec F$ is
+\vec F(x,y,z)=\big(P(x,y,z),\;Q(x,y,z),\;R(x,y,z)\big).
+
 $$
+
+
+The **divergence** of $\vec F$ is
+
+$$
+
 \operatorname{div}(\vec F)
 =\frac{\partial P}{\partial x}
 +\frac{\partial Q}{\partial y}
 +\frac{\partial R}{\partial z}.
+
 $$
 
+
 It is common to introduce the **del** operator
+
 $$
+
 \nabla
 = \left(\frac{\partial}{\partial x},\,\frac{\partial}{\partial y},\,\frac{\partial}{\partial z}\right)
 = \frac{\partial}{\partial x}\,\hat{\mathbf x}
 + \frac{\partial}{\partial y}\,\hat{\mathbf y}
 + \frac{\partial}{\partial z}\,\hat{\mathbf z}.
+
 $$
 
+
 With this notation we can write simply
+
 $$
+
 \operatorname{div}(\vec F)=\nabla\cdot\vec F.
+
 $$
+
 
 **Intuition.** Very loosely, the divergence at a point measures how much *stuff* is coming **out of** (source) or **into** (sink) that point. In fluid flow it is the local net outflow per unit volume.
 
@@ -52,13 +68,21 @@ $$
 ## Gauss's Law (Electrostatics)
 
 If $\vec E$ is the electric field, then $\nabla\cdot\vec E$ measures how much electric field is coming out of a point. Electric charges produce electric fields. If $\rho_{ch}$ is the **charge density** (charge per unit volume), then
+
 $$
+
 \nabla\cdot\vec E = \alpha\,\rho_{ch},
+
 $$
+
 and consistency of units shows $\alpha=\frac{1}{\varepsilon_0}$, where $\varepsilon_0$ is the permittivity of free space. Hence
+
 $$
+
 \nabla\cdot\vec E = \frac{\rho_{ch}}{\varepsilon_0},
+
 $$
+
 which is **Gauss's Law** (one of Maxwell's equations).
 
 ---
@@ -66,16 +90,24 @@ which is **Gauss's Law** (one of Maxwell's equations).
 ## The Divergence Theorem (Gauss–Green / Gauss's Theorem)
 
 Let $V\subset\mathbb R^3$ be a region bounded by a **closed** oriented surface $S=\partial V$ with outward unit normal $\hat n$, and let $\vec F:\mathbb R^3\to\mathbb R^3$ be differentiable on and inside $S$. Then
+
 $$
+
 \iint_{S}\vec F\cdot\hat n\,dS
 \;=\;
 \iiint_{V}\operatorname{div}(\vec F)\,dV.
+
 $$
 
+
 In physics notation this is often written as
+
 $$
+
 \iint_{\partial V}\vec F\cdot d\vec a \;=\; \iiint_V \nabla\cdot\vec F\, dV.
+
 $$
+
 
 This theorem converts a surface (flux) integral over a closed surface into a volume integral over the enclosed region.
 
@@ -86,25 +118,41 @@ This theorem converts a surface (flux) integral over a closed surface into a vol
 Consider the sphere of radius $a$ centered at the origin.
 
 1. For $\vec F=z\,\hat{\mathbf k}$,
-   $$
+   
+$$
+
    \operatorname{div}(z\,\hat{\mathbf k})=\frac{\partial z}{\partial z}=1.
-   $$
+   
+$$
+
    Hence the flux through the sphere is
-   $$
+   
+$$
+
    \iiint_V 1\,dV = \operatorname{Vol}(\text{sphere}) = \frac{4}{3}\pi a^3.
-   $$
+   
+$$
+
 
 2. For $\vec F=x\,\hat{\mathbf i}+y\,\hat{\mathbf j}+z\,\hat{\mathbf k}$,
-   $$
+   
+$$
+
    \operatorname{div}(\vec F)
    =\frac{\partial x}{\partial x}
     +\frac{\partial y}{\partial y}
     +\frac{\partial z}{\partial z}=3,
-   $$
+   
+$$
+
    so the flux is
-   $$
+   
+$$
+
    \iiint_V 3\,dV = 3\cdot\frac{4}{3}\pi a^3 = 4\pi a^3.
-   $$
+   
+$$
+
 
 ---
 
@@ -119,37 +167,59 @@ Thus, **total outflow through the boundary equals total generation minus depleti
 ## Gravitation Analogy
 
 Newton's universal law of gravity gives the force on a point mass $m$ at position $\vec R=(x,y,z)$ due to a point mass $M$ at the origin:
+
 $$
+
 \vec F = -\frac{GMm}{\lVert \vec R\rVert^3}\,\vec R
        = -\frac{GMm}{\lVert \vec R\rVert^2}\,\hat{\vec R}.
+
 $$
+
 
 The **gravitational field** $\vec G$ is the force per unit test mass:
-$$
-\vec G = \frac{\vec F}{m} = -\frac{GM}{\lVert \vec R\rVert^2}\,\hat{\vec R}.
+
 $$
 
+\vec G = \frac{\vec F}{m} = -\frac{GM}{\lVert \vec R\rVert^2}\,\hat{\vec R}.
+
+$$
+
+
 By analogy with Gauss's law in electrostatics, if $\rho_{\text{mass}}$ is the **mass density**, then
+
 $$
+
 \nabla\cdot\vec G = \beta\,\rho_{\text{mass}},
+
 $$
+
 and in fact the constant is related to $G$ by
+
 $$
+
 \nabla\cdot\vec G = -\,4\pi G\,\rho_{\text{mass}}.
+
 $$
+
 
 ---
 
 ## Coordinate Form of the Theorem and Del Notation
 
 For $\vec F=(P,Q,R)$,
+
 $$
+
 \operatorname{div}(\vec F)=\frac{\partial P}{\partial x}
 +\frac{\partial Q}{\partial y}
 +\frac{\partial R}{\partial z},
+
 $$
+
 so the flux integral becomes
+
 $$
+
 \iint_{S}\vec F\cdot\hat n\,dS
 \;=\;
 \iiint_{V}\left(
@@ -157,35 +227,57 @@ $$
 +\frac{\partial Q}{\partial y}
 +\frac{\partial R}{\partial z}
 \right)dV.
+
 $$
+
 
 It is useful to remember the operator
-$$
-\nabla=\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right).
+
 $$
 
+\nabla=\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right).
+
+$$
+
+
 Applied to a **scalar** function $f$,
+
 $$
+
 \nabla f=\left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right),
+
 $$
+
 the **gradient** of $f$.
 
 When dotted with a **vector** field $\vec F=(P,Q,R)$,
+
 $$
+
 \nabla\cdot\vec F=\frac{\partial P}{\partial x}
 +\frac{\partial Q}{\partial y}
 +\frac{\partial R}{\partial z}.
+
 $$
+
 
 In two dimensions the del operator is
-$$
-\nabla=\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y}\right).
+
 $$
 
+\nabla=\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y}\right).
+
+$$
+
+
 Finally, the **curl** of a vector field in 3D can be written as the cross product of del with the field:
+
 $$
+
 \operatorname{curl}(\vec F)=\nabla\times\vec F.
+
 $$
+
 
 ---
 
@@ -199,9 +291,13 @@ $$
 Let $\vec F$ represent the **velocity field** of a fluid (e.g., water). Assume the fluid is **incompressible**, so any fixed quantity occupies the same volume (no compression or expansion). Consider a bounded region $D$ enclosed by a smooth, closed surface $S$ with outward unit normal $\hat n$.
 
 By the Divergence Theorem,
+
 $$
+
 \iint_{S} \vec F\cdot \hat n\, dS \;=\; \iiint_{V} \operatorname{div}(\vec F)\, dV. \tag{4.222}
+
 $$
+
 
 - **Left-hand side:** net amount of fluid **leaving** $D$ per unit time (positive = outflow, negative = inflow).  
 - **Right-hand side:** the **sum of sources and sinks** inside $D$ (local expansion/contraction rate per unit volume).
@@ -217,19 +313,31 @@ For an incompressible fluid, any net outflow must come from **internal sources**
 The symbol $\nabla$ ("del") is used in multiple ways; context matters.
 
 - **Gradient** (acts on a scalar $f$; output is a vector):
-  $$
+  
+$$
+
   \nabla f = \left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right). \tag{4.223}
-  $$
+  
+$$
+
 
 - **Divergence** (dot with a vector field $\vec F=(P,Q,R)$; output is a scalar):
-  $$
+  
+$$
+
   \nabla\cdot \vec F = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}. \tag{4.224}
-  $$
+  
+$$
+
 
 - **Curl** (cross with a vector field; output is a vector):
-  $$
+  
+$$
+
   \nabla\times \vec F. \tag{4.225}
-  $$
+  
+$$
+
 
 > Gradient maps **scalars $\to$ vectors**; divergence maps **vectors $\to$ scalars**; curl maps **vectors $\to$ vectors**.
 
@@ -238,86 +346,138 @@ The symbol $\nabla$ ("del") is used in multiple ways; context matters.
 ## Proof in a Special Case: Field with Only a $z$-Component
 
 Let $\vec F=(0,0,R)$. Then
-$$
-\nabla\cdot \vec F = \frac{\partial R}{\partial z} = R_z. \tag{4.226}
+
 $$
 
+\nabla\cdot \vec F = \frac{\partial R}{\partial z} = R_z. \tag{4.226}
+
+$$
+
+
 We will prove for a solid region $D$ with boundary $S$ that
+
 $$
+
 \iint_{S} \vec F\cdot \hat n\, dS \;=\; \iiint_{V} R_z\, dV. \tag{4.227}
+
 $$
+
 
 ### Vertically Simple Region
 
 Assume $D$ is **vertically simple**: bounded below by $z=z_1(x,y)$ and above by $z=z_2(x,y)$, and projects to a base region $U$ in the $xy$–plane. Then
+
 $$
+
 \iiint_{V} R_z\, dV \;=\; \iint_{U} \int_{z_1(x,y)}^{z_2(x,y)} R_z\, dz\, dx\, dy. \tag{4.228}
+
 $$
+
 By the Fundamental Theorem of Calculus,
+
 $$
+
 \int_{z_1}^{z_2} R_z\, dz = R(x,y,z_2(x,y)) - R(x,y,z_1(x,y)), \tag{4.229}
+
 $$
+
 hence
+
 $$
+
 \iiint_{V} R_z\, dV
 = \iint_{U} \Big[ R(x,y,z_2(x,y)) - R(x,y,z_1(x,y)) \Big]\, dx\, dy. \tag{4.230}
+
 $$
+
 
 ### Surface Flux Decomposition
 
 Split the boundary into **top**, **bottom**, and **side** faces:
+
 $$
+
 \iint_{S}\vec F\cdot \hat n\, dS
 = \iint_{\text{Top}}\vec F\cdot \hat n\, dS
 + \iint_{\text{Bottom}}\vec F\cdot \hat n\, dS
 + \iint_{\text{Sides}}\vec F\cdot \hat n\, dS. \tag{4.231}
+
 $$
+
 
 - **Top face** $z=z_2(x,y)$.
   For a surface $z=f(x,y)$, $\ \hat n\, dS = \big(-f_x,-f_y,1\big)\,dx\,dy$ with upward orientation. Thus
-  $$
+  
+$$
+
   \hat n\, dS = \big(-\partial_x z_2,-\partial_y z_2,1\big)\,dx\,dy, \tag{4.234}
-  $$
+  
+$$
+
   and with $\vec F=(0,0,R)$,
-  $$
+  
+$$
+
   \iint_{\text{Top}}\vec F\cdot \hat n\, dS
   = \iint_{\text{Top}} R\,dx\,dy
   = \iint_{U} R\!\left(x,y,z_2(x,y)\right)\, dx\, dy. \tag{4.235–4.236}
-  $$
+  
+$$
+
 
 - **Bottom face** $z=z_1(x,y)$ (outward normal points downward):
-  $$
+  
+$$
+
   \hat n\, dS = \big(\partial_x z_1,\partial_y z_1,-1\big)\,dx\,dy, \tag{4.237}
-  $$
+  
+$$
+
   hence
-  $$
+  
+$$
+
   \iint_{\text{Bottom}}\vec F\cdot \hat n\, dS
   = \iint_{U} \!-R\!\left(x,y,z_1(x,y)\right)\, dx\, dy. \tag{4.238}
-  $$
+  
+$$
+
 
 - **Side faces:** the normal lies in the $xy$–plane while $\vec F$ points in $\hat k$; therefore $\vec F\cdot \hat n=0$ and the side contribution is **zero**. \tag{4.239}
 
 **Conclusion.** Adding top and bottom gives
+
 $$
+
 \iint_{S}\vec F\cdot \hat n\, dS
 = \iint_{U}\!\Big[ R(x,y,z_2(x,y)) - R(x,y,z_1(x,y)) \Big]\,dx\,dy, \tag{4.240}
+
 $$
+
 which matches the volume result in \eqref{4.230}. Thus, for $\vec F=(0,0,R)$ over a vertically simple region, the Divergence Theorem holds.
 
 ### Extending to General Regions and Fields
 
 Summarizing,
+
 $$
+
 \iiint_{V} R_z\, dV
 = \iint_{U}\!\Big[ R(x,y,z_2(x,y)) - R(x,y,z_1(x,y)) \Big]\,dx\,dy, \tag{4.241}
+
 $$
+
 and
+
 $$
+
 \iint_{S}\vec F\cdot \hat n\, dS
 = \iint_{\text{Top}}\vec F\cdot \hat n\, dS
 + \iint_{\text{Bottom}}\vec F\cdot \hat n\, dS
 + \iint_{\text{Sides}}\vec F\cdot \hat n\, dS. \tag{4.242}
+
 $$
+
 
 For regions $D$ not vertically simple, partition $D$ into **vertically simple subregions**. Flux across internal vertical interfaces cancels (opposite orientations), and if $\vec F$ only has a $z$‑component, $\vec F\cdot \hat n=0$ on vertical sides. The same argument applies to fields with only $x$‑ or $y$‑components; **adding the three cases** yields the general Divergence Theorem for arbitrary $\vec F=(P,Q,R)$.
 
@@ -326,59 +486,103 @@ For regions $D$ not vertically simple, partition $D$ into **vertically simple su
 ## Deriving the Diffusion (Heat) Equation
 
 Let $u(x,y,z,t)$ denote **concentration** (or temperature) and let $k$ be the **diffusivity**. The diffusion (heat) equation is
+
 $$
+
 \frac{\partial u}{\partial t} = k\,\nabla^2 u, \tag{4.243}
+
 $$
+
 where the **Laplacian**
+
 $$
+
 \nabla^2 u = \operatorname{div}(\nabla u)
 = \frac{\partial^2 u}{\partial x^2}
 + \frac{\partial^2 u}{\partial y^2}
 + \frac{\partial^2 u}{\partial z^2}. \tag{4.244}
+
 $$
+
 
 **Fick’s law.** Material flows from high to low concentration with flux
+
 $$
+
 \vec F = -\,k\,\nabla u. \tag{4.245}
+
 $$
+
 
 Consider any small region $V$ with boundary $S$. The **net outflow** is
+
 $$
+
 \iint_{S}\vec F\cdot \hat n\, dS, \tag{4.246}
+
 $$
+
 which equals the **negative time derivative** of the total amount within $V$:
+
 $$
+
 \iint_{S}\vec F\cdot \hat n\, dS
 = -\,\frac{d}{dt}\iiint_{V} u\, dV. \tag{4.247}
+
 $$
+
 Applying the Divergence Theorem,
+
 $$
+
 \iiint_{V}\operatorname{div}(\vec F)\, dV
 = -\,\frac{d}{dt}\iiint_{V} u\, dV. \tag{4.248}
+
 $$
+
 Since $t$ is independent of $(x,y,z)$, interchange differentiation and integration:
+
 $$
+
 \iiint_{V}\operatorname{div}(\vec F)\, dV
 = -\,\iiint_{V}\frac{\partial u}{\partial t}\, dV. \tag{4.249}
+
 $$
+
 Because this holds for all regions $V$,
+
 $$
+
 \operatorname{div}(\vec F) = -\,\frac{\partial u}{\partial t}. \tag{4.250}
+
 $$
+
 Substituting $\vec F=-k\nabla u$ gives
+
 $$
+
 -\,\operatorname{div}(-k\nabla u) = \frac{\partial u}{\partial t}. \tag{4.251}
+
 $$
+
 
 - If $k$ is **constant**, this reduces to the standard diffusion/heat equation:
-  $$
+  
+$$
+
   \frac{\partial u}{\partial t} = k\,\nabla^2 u.
-  $$
+  
+$$
+
 
 - If $k=k(x,y,z)$ varies spatially, the more general form is
-  $$
+  
+$$
+
   \frac{\partial u}{\partial t} = \nabla\cdot\!\big(k\,\nabla u\big).
-  $$
+  
+$$
+
 
 ---
 
@@ -390,9 +594,13 @@ $$
 ## Closing the Diffusion Derivation
 
 Using the del notation, the result in \eqref{4.251} is equivalently
+
 $$
+
 \frac{\partial u}{\partial t}=k\,\nabla^{2}u. \tag{4.252}
+
 $$
+
 
 This completes the derivation of the diffusion (heat) equation from physical and mathematical principles.
 
@@ -403,83 +611,134 @@ This completes the derivation of the diffusion (heat) equation from physical and
 Consider $u=u(x,y,z,t)$ as concentration (or temperature). Two key principles:
 
 1. **From Physics (Fick’s law):** Flow goes from high to low concentration, modeled by the flux
-   $$
+   
+$$
+
    \vec F = -k\,\nabla u, \tag{4.253}
-   $$
+   
+$$
+
    with diffusion coefficient $k>0$ (assumed constant).
 
 2. **From the Divergence Theorem / Conservation:** The divergence of $\vec F$ equals the **negative** time rate of change of $u$:
-   $$
+   
+$$
+
    \operatorname{div}(\vec F) = -\frac{\partial u}{\partial t}. \tag{4.254}
-   $$
+   
+$$
+
 
 Combine them:
+
 $$
+
 \frac{\partial u}{\partial t}
 = -\,\operatorname{div}(\vec F)
 = +\,k\,\operatorname{div}(\nabla u)
 = k\,\nabla^{2}u. \tag{4.255}
+
 $$
+
 
 Thus the governing PDE for diffusion is
-$$
-\frac{\partial u}{\partial t}=k\,\nabla^{2}u. \tag{4.256}
+
 $$
 
+\frac{\partial u}{\partial t}=k\,\nabla^{2}u. \tag{4.256}
+
+$$
+
+
 Many authors use the Laplacian symbol $\Delta$, giving
+
 $$
+
 \frac{\partial u}{\partial t}=k\,\Delta u. \tag{4.257}
+
 $$
+
 
 ---
 
 ## A Quick Zero‑Divergence Example
 
 Let $\vec F:\mathbb R^3\to\mathbb R^3$ be
+
 $$
+
 \vec F(x,y,z)=\big(e^{\,y\sin z},\ \cos(x+z^2),\ xy^2+J_0(y)\big), \tag{4.258}
+
 $$
+
 where $J_0$ is the zeroth Bessel function of the first kind. Note that the $x$‑component is independent of $x$, the $y$‑component is independent of $y$, and the $z$‑component is independent of $z$. Therefore
+
 $$
+
 \nabla\cdot\vec F
 = \frac{\partial}{\partial x}e^{\,y\sin z}
 + \frac{\partial}{\partial y}\cos(x+z^2)
 + \frac{\partial}{\partial z}\!\left(xy^2+J_0(y)\right)
 = 0.
+
 $$
+
 By the Divergence Theorem, the flux of $\vec F$ through **any** closed surface is zero.
 
 **Example 19.** If $\nabla\cdot\vec F=c$ is constant, then for any closed orientable surface $S$ enclosing volume $V$,
+
 $$
+
 \text{Flux}=\iint_{S}\vec F\cdot d\vec a
 = \iiint_{V}\nabla\cdot\vec F\, dV
 = \iiint_{V} c\, dV
 = c\,\operatorname{Vol}(V). \tag{4.259}
+
 $$
+
 
 ---
 
 ## Summary
 
 - **Divergence Theorem (statement & interpretation):**
-  $$
+  
+$$
+
   \iint_{S}\vec F\cdot \hat n\, dS = \iiint_{V}\operatorname{div}(\vec F)\, dV. \tag{4.267}
-  $$
+  
+$$
+
   LHS = total outward **flux** across the closed surface $S$; RHS = total **expansion/contradiction** (net sources/sinks) inside $V$. Hence  
-  $$
+  
+$$
+
   \text{Total Outflow}=\text{Net Generation (or Depletion)}. \tag{4.268}
-  $$
+  
+$$
+
 
 - **Component formula and del notation:** For $\vec F=(P,Q,R)$,
-  $$
+  
+$$
+
   \operatorname{div}(\vec F)=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}, \tag{4.269}
-  $$
+  
+$$
+
   with
-  $$
+  
+$$
+
   \nabla=\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right). \tag{4.270}
-  $$
+  
+$$
+
 
 - **Diffusion (heat) equation via Divergence Theorem:** With $\vec F=-k\nabla u$,
-  $$
+  
+$$
+
   \frac{\partial u}{\partial t}=k\,\nabla^{2}u. \tag{4.271}
-  $$
+  
+$$

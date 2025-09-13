@@ -9,10 +9,16 @@ primary: true
 Flux in 2D is defined using curves, vector fields, and normals to the curve.
 
 **Definition.** Given a curve $C$ in the plane, and a vector field $\vec{\mathbf F}$, the **flux** of $\vec{\mathbf F}$ across $C$ is
+
+
 $$
+
 \int_C \vec{\mathbf F}\cdot \hat{\mathbf n}\, ds,
 \tag{4.1}
+
 $$
+
+
 where $\hat{\mathbf n}$ is the unit normal vector to the curve $C$ pointing $90^\circ$ counterclockwise from the unit tangent vector $\hat{\mathbf T}$ to $C$.
 
 ---
@@ -21,34 +27,50 @@ where $\hat{\mathbf n}$ is the unit normal vector to the curve $C$ pointing $90^
 
 Consider the curve in the plane $C$ that is the graph of $y = x - 2x^3 + 2x^5$ with $0 \le x \le 1$.
 We can explicitly parametrize $C$ using
+
 $$
+
 \gamma(t)=(t,\; t-2t^3+2t^5),\qquad t\in[0,1].
 \tag{4.2}
+
 $$
+
 
 The unit tangent vector is obtained by differentiating to get the velocity and then normalizing:
-$$
-\hat{\mathbf T}(t)=\frac{\gamma'(t)}{\lVert \gamma'(t)\rVert}.
-\tag{4.3}
+
 $$
 
-There are two ways to get the normal vector. First, we can use the Frenet–Serret formula, which gives:
+\hat{\mathbf T}(t)=\frac{\gamma'(t)}{\lVert \gamma'(t)\rVert}.
+\tag{4.3}
+
 $$
+
+
+There are two ways to get the normal vector. First, we can use the Frenet–Serret formula, which gives:
+
+$$
+
 \hat{\mathbf N}(t)=\frac{d\hat{\mathbf T}(t)}{dt}.
 \tag{4.4}
+
 $$
+
 
 But far easier is to note that for any vector $(x,y)$ in the plane, the vector $(-y,x)$ is orthogonal to $(x,y)$ and is the result of a $90^\circ$ counterclockwise rotation.
 
 Using our formula for $\gamma(t)$, we can explicitly compute the normal vector as the $90^\circ$ CCW rotation of $\hat{\mathbf T}(t)$.
 
 Once we have any vector field $\mathbf F:\mathbb R^2\to \mathbb R^2$, we may compute the flux using our previous calculations:
+
 $$
+
 \int_C \mathbf F\cdot \hat{\mathbf n}\, ds
 =\int_0^1 \mathbf F\!\big(\gamma(t)\big)\cdot \hat{\mathbf N}(t)\, ds
 =\int_0^1 \mathbf F\!\big(\gamma(t)\big)\cdot \hat{\mathbf N}(t)\,\frac{ds}{dt}\, dt,
 \tag{4.5}
+
 $$
+
 where $s$ denotes arc length and $\dfrac{ds}{dt}=\lVert \gamma'(t)\rVert$.
 
 ---
@@ -56,15 +78,23 @@ where $s$ denotes arc length and $\dfrac{ds}{dt}=\lVert \gamma'(t)\rVert$.
 ## 3) Extending flux to three dimensions
 
 Given a vector field $\vec{\mathbf F}$ in 3D, the flux of $\vec{\mathbf F}$ across a surface $S$ is
+
 $$
+
 \iint_S \vec{\mathbf F}\cdot \hat{\mathbf n}\, dS,
 \tag{4.6}
+
 $$
+
 where $dS$ is the surface area element. Sometimes we write
+
 $$
+
 d\vec{\mathbf S}=\hat{\mathbf n}\, dS.
 \tag{4.7}
+
 $$
+
 
 **Interpretation.** Think of fluid flow across a surface. If $\vec{\mathbf F}$ is the velocity field of a fluid, then the flux of $\vec{\mathbf F}$ across $S$ is the volume of fluid flowing across $S$ per unit time.
 
@@ -82,19 +112,27 @@ Similar to the 2D case, the common notations are italic letters with arrows (e.g
 Many real-world phenomena can be described using vector fields, including:
 
 - **Gravitational fields.** The gravitational attraction exerted by a mass $M$ at the origin on another mass $m$ at $(x,y,z)$ forms a vector field that points toward the origin:
-  $$
+  
+$$
+
   \vec{\mathbf F}
   = -\,\frac{GMm}{R^3}\,(x,y,z)
   = -\,\frac{GMm}{\lVert \vec{\mathbf R}\rVert^3}\,\vec{\mathbf R}
   = -\,\frac{GMm}{\lVert \vec{\mathbf R}\rVert^2}\,\hat{\mathbf R},
   \tag{4.8}
-  $$
+  
+$$
+
   where $\vec{\mathbf R}=(x,y,z)$ is the position vector for the mass $m$, and $G$ is the universal gravitational constant. The vectors point toward the origin and their magnitudes decay proportionally to $1/R^2$.
 
 - **Warning on symbols.** In many math courses, $\rho$ is used instead of $R$ for the radial distance,
-  $$
+  
+$$
+
   \rho=\sqrt{x^2+y^2+z^2},
-  $$
+  
+$$
+
   though $\rho$ is often used for densities in physics.
 
 - **Electric fields.** A charged particle at the origin generates a similar inverse-square field (Coulomb’s law).
@@ -108,14 +146,22 @@ Many real-world phenomena can be described using vector fields, including:
 ## 5) General definition of a 3D vector field
 
 A vector field in 3D is a function
+
 $$
+
 \vec{\mathbf F}:\mathbb R^3\to\mathbb R^3,
+
 $$
+
 i.e.,
+
 $$
+
 \vec{\mathbf F}(x,y,z)=\big(P(x,y,z),\; Q(x,y,z),\; R(x,y,z)\big),
 \tag{4.13}
+
 $$
+
 where $P,Q,R$ are scalar functions of $x,y,z$.
 
 ---
@@ -123,23 +169,35 @@ where $P,Q,R$ are scalar functions of $x,y,z$.
 ## 6) Example 16 — Point charge(s) and superposition
 
 Given a single point charge $q$ at $(x_0,y_0,z_0)$, the electric field at $(x,y,z)$ is
-$$
-\mathbf E=\frac{q}{4\pi\varepsilon_0}\,\frac{\mathbf R}{\lVert \mathbf R\rVert^3},
-\tag{4.14}
-$$
-where $\varepsilon_0>0$ is a constant and the relative position vector is
-$$
-\mathbf R=(x-x_0,\; y-y_0,\; z-z_0).
-\tag{4.15}
+
 $$
 
-If we have two electric charges $q_1$ and $q_2$, the net field (by superposition) is
+\mathbf E=\frac{q}{4\pi\varepsilon_0}\,\frac{\mathbf R}{\lVert \mathbf R\rVert^3},
+\tag{4.14}
+
 $$
+
+where $\varepsilon_0>0$ is a constant and the relative position vector is
+
+$$
+
+\mathbf R=(x-x_0,\; y-y_0,\; z-z_0).
+\tag{4.15}
+
+$$
+
+
+If we have two electric charges $q_1$ and $q_2$, the net field (by superposition) is
+
+$$
+
 \mathbf E=\mathbf E_1+\mathbf E_2
 =\frac{q_1}{4\pi\varepsilon_0}\frac{\mathbf R_1}{\lVert \mathbf R_1\rVert^3}
 +\frac{q_2}{4\pi\varepsilon_0}\frac{\mathbf R_2}{\lVert \mathbf R_2\rVert^3}.
 \tag{4.16}
+
 $$
+
 
 If we place $q_1$ at $(1,0,0)$ and $q_2$ at $(-1,0,0)$, and make the magnitudes equal and signs opposite ($q_1=-q_2$), the resulting field is the classical **electric dipole** field.
 
@@ -148,10 +206,14 @@ If we place $q_1$ at $(1,0,0)$ and $q_2$ at $(-1,0,0)$, and make the magnitudes 
 ## 7) Gradient fields
 
 Another important type of vector field is given by the **gradient** of a scalar function. For a function $f:\mathbb R^3\to\mathbb R$, we define
+
 $$
+
 \nabla f=\left(\frac{\partial f}{\partial x},\; \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z}\right).
 \tag{4.17}
+
 $$
+
 
 Using subscript notation $f_x=\partial f/\partial x$, we may also write $\nabla f=(f_x,f_y,f_z)$.
 Many physical fields (including gravitational and electric fields) can be expressed as gradients of potential functions.
@@ -163,10 +225,14 @@ Many physical fields (including gravitational and electric fields) can be expres
 Flux quantifies the net amount of a vector field that crosses a chosen boundary—either a curve in the plane or a surface in space.
 
 As we have seen in two dimensions, the flux across a curve $C$ is given by the line integral
+
 $$
+
 \int_C \vec{\mathbf F}\cdot \hat{\mathbf n}\, ds,
 \tag{4.21}
+
 $$
+
 where $\hat{\mathbf n}$ is the unit normal to $C$.
 
 When we specify the curve $C$ by a single parameter, say $\big(x(t),y(t)\big)$ for $a\le t\le b$, the two spatial coordinates $(x,y)$ collapse to the lone variable $t$. The resulting line integral then measures a concrete physical quantity: the net volume of fluid that crosses the curve per unit time. The only portion of the vector field that matters in this scenario is the component along the normal direction of $C$.
@@ -178,27 +244,43 @@ When we specify the curve $C$ by a single parameter, say $\big(x(t),y(t)\big)$ f
 ## 9) Example 17 — Flux across a curve for $(\mathbf F(x,y)=(x,0)$)
 
 Suppose $C$ is the curve in the plane with $y=x-2x^3+2x^5$ and $0\le x\le 1$. We parametrize with
+
 $$
+
 \gamma(t)=(t,\; t-2t^3+2t^5),\qquad t\in[0,1].
 \tag{4.22}
+
 $$
+
 Let the vector field $\mathbf F:\mathbb R^2\to\mathbb R^2$ be
+
 $$
+
 \mathbf F=(x,0).
 \tag{4.23}
+
 $$
+
 
 Using $\hat{\mathbf T}(t)=\gamma'(t)/\lVert\gamma'(t)\rVert$ and $\hat{\mathbf N}(t)=\hat{\mathbf T}'(t)$ (or the $90^\circ$ CCW rotation of $\hat{\mathbf T}$), the flux is
-$$
-\text{Flux}=\int_C \mathbf F\cdot \hat{\mathbf n}\, ds
-= \int_0^1 \mathbf F\!\big(\gamma(t)\big)\cdot \hat{\mathbf N}(t)\,\frac{ds}{dt}\, dt.
+
 $$
 
-At each $t\in[0,1]$, the gray arrow $\mathbf F(\gamma(t))$ and the red arrow $\hat{\mathbf N}(t)$ form an angle $\theta$. Since the red arrow is unit length,
+\text{Flux}=\int_C \mathbf F\cdot \hat{\mathbf n}\, ds
+= \int_0^1 \mathbf F\!\big(\gamma(t)\big)\cdot \hat{\mathbf N}(t)\,\frac{ds}{dt}\, dt.
+
 $$
+
+
+At each $t\in[0,1]$, the gray arrow $\mathbf F(\gamma(t))$ and the red arrow $\hat{\mathbf N}(t)$ form an angle $\theta$. Since the red arrow is unit length,
+
+$$
+
 \mathbf F(\gamma(t))\cdot \hat{\mathbf N}(t)
 = \lVert \mathbf F(\gamma(t))\rVert \cos\theta,
+
 $$
+
 and the flux is obtained by integrating this contribution from $t=0$ to $t=1$.
 
 ---
@@ -210,23 +292,35 @@ In three dimensions, a one‑dimensional curve has no area, so no field can cros
 Parametrize the surface $S$ by two variables, for example $r(u,v)=(x(u,v),y(u,v),z(u,v))$. The three spatial coordinates $(x,y,z)$ collapse to the pair $(u,v)$ and we integrate over $u,v$. This reduction (3D $\to$ 2D) parallels the reduction (2D $\to$ 1D) for line integrals.
 
 The integral is the direct generalization of the 2D case:
+
 $$
+
 \text{Flux}=\iint_S \vec{\mathbf F}\cdot \hat{\mathbf n}\, dS.
 \tag{4.24}
+
 $$
+
 
 Flux in three dimensions measures how much of a vector field passes through a surface. Given a vector field $\vec{\mathbf F}$ and a surface $S$, we consider the component of $\vec{\mathbf F}$ normal to $S$ at each point. Because any smooth surface has two opposite unit normals, we **fix an orientation**—typically the outward‑pointing normal for closed surfaces.
 
 Once an orientation is chosen, the **flux integral** is
+
 $$
+
 \iint_S \vec{\mathbf F}\cdot \hat{\mathbf n}\, dS,
 \tag{4.25}
+
 $$
+
 where $dS$ is the surface‑area element. Often we use the alternative notation
+
 $$
+
 d\vec{\mathbf S}=\hat{\mathbf n}\, dS,
 \tag{4.26}
+
 $$
+
 which bundles the unit normal direction with the scalar area element.
 
 ---
@@ -236,79 +330,123 @@ which bundles the unit normal direction with the scalar area element.
 We examine the flux of $\vec{\mathbf F}=(x,y,z)$ through a sphere of radius $a$ centered at the origin.
 
 $\vec{\mathbf F}$ is the position (radial) vector, pointing outward. The outward unit normal at $(x,y,z)$ on the sphere is
+
 $$
+
 \hat{\mathbf n}=\left(\frac{x}{a},\,\frac{y}{a},\,\frac{z}{a}\right),
 \tag{4.27}
+
 $$
+
 so
+
 $$
+
 \vec{\mathbf F}\cdot \hat{\mathbf n}
 =(x,y,z)\cdot \left(\frac{x}{a},\frac{y}{a},\frac{z}{a}\right)
 =\frac{x^2+y^2+z^2}{a}=a.
 \tag{4.28}
+
 $$
+
 Therefore,
+
 $$
+
 \iint_S \vec{\mathbf F}\cdot \hat{\mathbf n}\, dS
 =\iint_S a\, dS
 =a\iint_S dS.
 \tag{4.29}
+
 $$
+
 Since $\iint_S dS=4\pi a^2$ (surface area of the sphere), the flux is
+
 $$
+
 \iint_S \vec{\mathbf F}\cdot \hat{\mathbf n}\, dS
 =4\pi a^3.
 \tag{4.30}
+
 $$
+
 
 ---
 
 ## 12) Example — Flux through the same sphere for $\vec{\mathbf H}=z\,\hat{\mathbf k}$
 
 Let $\vec{\mathbf H}=(0,0,z)$. The unit normal is unchanged,
+
 $$
+
 \hat{\mathbf n}=\left(\frac{x}{a},\,\frac{y}{a},\,\frac{z}{a}\right),
 \tag{4.31}
+
 $$
+
 but now
+
 $$
+
 \vec{\mathbf H}\cdot \hat{\mathbf n}
 =\left(\frac{x}{a},\,\frac{y}{a},\,\frac{z}{a}\right)\cdot(0,0,z)=\frac{z^2}{a},
 \tag{4.32}
+
 $$
+
 hence
+
 $$
+
 \iint_S \vec{\mathbf H}\cdot \hat{\mathbf n}\, dS
 =\iint_S \frac{z^2}{a}\, dS
 =\frac{1}{a}\iint_S z^2\, dS.
 \tag{4.33}
+
 $$
 
+
 Using spherical coordinates for a sphere of radius $a$, the surface element and $z$ are
+
 $$
+
 dS=a^2\sin\phi\, d\phi\, d\theta, \qquad z=a\cos\phi.
 \tag{4.34}
+
 $$
+
 Substituting,
+
 $$
+
 \frac{1}{a}\iint_S z^2\, dS
 =\frac{1}{a}\iint_S a^2\cos^2\!\phi \;\; a^2\sin\phi\, d\phi\, d\theta
 =a^3 \int_0^{2\pi}\!\!\int_0^{\pi}\cos^2\!\phi\,\sin\phi\, d\phi\, d\theta.
 \tag{4.36}
+
 $$
+
 With $\phi\in[0,\pi]$ and $\theta\in[0,2\pi]$,
+
 $$
+
 a^3 \int_0^{2\pi}\!\!\int_0^{\pi}\cos^2\!\phi\,\sin\phi\, d\phi\, d\theta
 =a^3 \int_0^{2\pi}\! d\theta \int_0^{\pi}\cos^2\!\phi\,\sin\phi\, d\phi
 =\; a^3 \cdot 2\pi \cdot \frac{2}{3}.
 \tag{4.37}
+
 $$
+
 Therefore,
+
 $$
+
 \iint_S \vec{\mathbf H}\cdot \hat{\mathbf n}\, dS
 =\frac{4}{3}\pi a^3.
 \tag{4.39}
+
 $$
+
 
 **Remark.** Interestingly, this result equals the **volume** of a sphere of radius $a$. This connection will become clear via the **Divergence Theorem**.
 
@@ -319,49 +457,77 @@ $$
 ## 13) Computing flux on simple surfaces (planes & cylinders)
 
 **Horizontal plane $z=a$.** Orientation can be $\hat{\mathbf n}=\hat{\mathbf k}$ or $\hat{\mathbf n}=-\hat{\mathbf k}$. Using $x,y$ as surface coordinates,
+
 $$
+
 dS=dx\,dy.
 \tag{4.40}
+
 $$
+
 For a vector field $\vec{\mathbf F}$, only the $z$-component contributes after the dot product with $\hat{\mathbf n}$. Replacing $z$ by $a$ on the plane, the flux takes the form
+
 $$
+
 \iint_S f(x,y)\, dx\, dy,
 \tag{4.41}
+
 $$
+
 where $f(x,y)=\vec{\mathbf F}\cdot \hat{\mathbf n}$ expressed in $x,y$.
 
 **Vertical plane parallel to the $yz$-plane, $x=a$.** Orientation $\hat{\mathbf n}=\pm \hat{\mathbf i}$, and take $y,z$ as surface coordinates,
-$$
-dS=dy\,dz.
-\tag{4.42}
+
 $$
 
-**Vertical plane parallel to the $xz$-plane, $y=a$.** Orientation $\hat{\mathbf n}=\pm \hat{\mathbf j}$, and
+dS=dy\,dz.
+\tag{4.42}
+
 $$
+
+
+**Vertical plane parallel to the $xz$-plane, $y=a$.** Orientation $\hat{\mathbf n}=\pm \hat{\mathbf j}$, and
+
+$$
+
 dS=dx\,dz.
 \tag{4.43}
+
 $$
+
 
 ---
 
 ## 14) Spherical surfaces
 
 For a sphere of radius $a$ centered at the origin, the outward unit normal is
-$$
-\hat{\mathbf n}=\left(\frac{x}{a},\frac{y}{a},\frac{z}{a}\right).
-\tag{4.44}
-$$
-(If the normal is inward, the sign is reversed.) In spherical coordinates the differential surface element is
-$$
-dS=a^2\sin\phi\, d\phi\, d\theta.
-\tag{4.45}
+
 $$
 
-When computing the flux integral
+\hat{\mathbf n}=\left(\frac{x}{a},\frac{y}{a},\frac{z}{a}\right).
+\tag{4.44}
+
 $$
+
+(If the normal is inward, the sign is reversed.) In spherical coordinates the differential surface element is
+
+$$
+
+dS=a^2\sin\phi\, d\phi\, d\theta.
+\tag{4.45}
+
+$$
+
+
+When computing the flux integral
+
+$$
+
 \iint_S \vec{\mathbf F}\cdot \hat{\mathbf n}\, dS,
 \tag{4.46}
+
 $$
+
 it is often best to first compute the dot product $\vec{\mathbf F}\cdot \hat{\mathbf n}$ before substituting explicit expressions for $x,y,z$.
 
 ---
@@ -369,32 +535,52 @@ it is often best to first compute the dot product $\vec{\mathbf F}\cdot \hat{\ma
 ## 15) Cylindrical surfaces
 
 Consider a cylinder of radius $a$ centered on the $z$-axis (possibly restricted in $z$ or $\theta$). The outward unit normal for the curved side is horizontal (no $z$-component):
+
 $$
+
 \hat{\mathbf n}=\left(\frac{x}{a},\frac{y}{a},0\right).
 \tag{4.47}
+
 $$
+
 
 Using cylindrical coordinates on the side surface ($z$ = height, $\theta$ = angle, $r=a$ constant), a small patch of height $\Delta z$ and angular width $\Delta\theta$ at radius $a$ has area
-$$
-\Delta S=a\,\Delta\theta\,\Delta z.
-\tag{4.48}
-$$
-In the infinitesimal limit,
-$$
-dS=a\, d\theta\, dz.
-\tag{4.49}
+
 $$
 
-For the flux integral
+\Delta S=a\,\Delta\theta\,\Delta z.
+\tag{4.48}
+
 $$
+
+In the infinitesimal limit,
+
+$$
+
+dS=a\, d\theta\, dz.
+\tag{4.49}
+
+$$
+
+
+For the flux integral
+
+$$
+
 \iint_S \vec{\mathbf F}\cdot \hat{\mathbf n}\, dS,
 \tag{4.50}
+
 $$
+
 first evaluate $\vec{\mathbf F}\cdot \hat{\mathbf n}$, then substitute $dS$ and use
+
 $$
+
 x=a\cos\theta,\qquad y=a\sin\theta,
 \tag{4.51}
+
 $$
+
 to remain consistent with the cylindrical parametrization.
 
 ---
@@ -402,10 +588,14 @@ to remain consistent with the cylindrical parametrization.
 ## 16) Geometric interpretation of flux
 
 If $\vec{\mathbf F}$ represents a **velocity field**, then the flux through a surface $S$ measures the amount of material passing through $S$ per unit time. Consider a small surface element $\Delta S$. The volume of fluid crossing this patch per unit time is the volume of a tiny box with base $\Delta S$ and height determined by the normal component of the velocity:
+
 $$
+
 \Delta S\,(\vec{\mathbf F}\cdot \hat{\mathbf n}).
 \tag{4.52}
+
 $$
+
 Summing these volumes and taking the limit gives the surface integral definition of flux.
 
 ---
@@ -416,23 +606,35 @@ Summing these volumes and taking the limit gives the surface integral definition
 A vector field assigns a vector $(P,Q,R)$ to each point $(x,y,z)$.
 
 ### Flux and surface integrals
+
 $$
+
 \iint_S \vec{\mathbf F}\cdot \hat{\mathbf n}\, dS,
 \tag{4.53}
+
 $$
+
 where $\hat{\mathbf n}$ is the unit normal and $dS$ is the surface element.
 
 ### Flux through a sphere of radius $a$
 Normal vector:
+
 $$
+
 \hat{\mathbf n}=\left(\frac{x}{a},\frac{y}{a},\frac{z}{a}\right).
 \tag{4.54}
+
 $$
+
 Surface element (spherical coordinates):
+
 $$
+
 dS=a^2\sin\phi\, d\phi\, d\theta.
 \tag{4.55}
+
 $$
+
 
 ### Flux through planes and cylinders
 - Horizontal plane $z=a$: $\hat{\mathbf n}=\pm \hat{\mathbf k}$, $dS=dx\,dy$.
