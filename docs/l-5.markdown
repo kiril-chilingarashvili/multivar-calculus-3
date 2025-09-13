@@ -1,4 +1,9 @@
-# Flux Through a Surface — Graphs and Parametrizations
+
+---
+layout: page
+title: Flux Through a Surface — Graphs and Parametrizations
+primary: true
+---
 
 This lecture explores the concept of **flux through a surface** in three dimensions and develops several methods for evaluating **surface integrals** in different settings.
 
