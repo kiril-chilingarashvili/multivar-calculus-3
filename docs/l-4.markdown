@@ -112,7 +112,7 @@ Similar to the 2D case, the common notations are italic letters with arrows (e.g
 Many real-world phenomena can be described using vector fields, including:
 
 - **Gravitational fields.** The gravitational attraction exerted by a mass $M$ at the origin on another mass $m$ at $(x,y,z)$ forms a vector field that points toward the origin:
-  
+
 $$
 
   \vec{\mathbf F}
@@ -120,17 +120,17 @@ $$
   = -\,\frac{GMm}{\lVert \vec{\mathbf R}\rVert^3}\,\vec{\mathbf R}
   = -\,\frac{GMm}{\lVert \vec{\mathbf R}\rVert^2}\,\hat{\mathbf R},
   \tag{4.8}
-  
+
 $$
 
   where $\vec{\mathbf R}=(x,y,z)$ is the position vector for the mass $m$, and $G$ is the universal gravitational constant. The vectors point toward the origin and their magnitudes decay proportionally to $1/R^2$.
 
 - **Warning on symbols.** In many math courses, $\rho$ is used instead of $R$ for the radial distance,
-  
+
 $$
 
   \rho=\sqrt{x^2+y^2+z^2},
-  
+
 $$
 
   though $\rho$ is often used for densities in physics.

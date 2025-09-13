@@ -260,31 +260,31 @@ where the orientation of the surface determines the sign of the cross product.
 ### Validation Examples
 
 1. **Graph of a function $z=f(x,y)$:** Let $x=u$, $y=v$, and $z=f(u,v)$. Then the position vector is
-   
+
 $$
 
    \vec r(u,v)=(u,\,v,\,f(u,v)). \qquad (4.97)
-   
+
 $$
 
    Computing the cross product yields the same expression for $\hat{\mathbf n}\,dS$ that we derived for graph surfaces.
 
 2. **Sphere of radius $a$:** Parametrize the sphere using spherical‑type coordinates
-   
+
 $$
 
    x=a\sin\phi\cos\theta,\qquad
    y=a\sin\phi\sin\theta,\qquad
    z=a\cos\phi. \qquad (4.98)
-   
+
 $$
 
    This gives the position vector
-   
+
 $$
 
    \vec r(\phi,\theta)=\big(x(\phi,\theta),\,y(\phi,\theta),\,z(\phi,\theta)\big). \qquad (4.99)
-   
+
 $$
 
    Applying the same cross‑product method produces the appropriate expression for $\hat{\mathbf n}\,dS$ (algebraic details omitted here).
@@ -300,11 +300,11 @@ One advantage of this implicit formulation is that a **normal vector** to the su
 
 - If the surface is a plane $ax+by+cz=d$, then $\vec N=(a,b,c)$ is a constant normal vector at every point.
 - If the surface is a level surface $g(x,y,z)=0$, then the **gradient** of $g$ provides the normal vector:
-  
+
 $$
 
   \vec N=\nabla g=\left(\frac{\partial g}{\partial x},\frac{\partial g}{\partial y},\frac{\partial g}{\partial z}\right). \qquad (4.119)
-  
+
 $$
 
 
@@ -476,29 +476,29 @@ All of this is a direct application of the divergence theorem.
 ## Summary: Surface–Flux Formulas
 
 - **Flux over Graph-Defined Surfaces:** For surfaces defined as $z=f(x,y)$, use
-  
+
 $$
 
   \hat{\mathbf n}\,dS=\pm\left(-\frac{\partial f}{\partial x},-\frac{\partial f}{\partial y},1\right)\,dx\,dy=\pm(-f_x,-f_y,1)\,dx\,dy. \qquad (4.141)
-  
+
 $$
 
 
 - **General Flux via Parametrized Surfaces:** For a parametrized surface $\vec r(u,v)=(x(u,v),y(u,v),z(u,v))$,
-  
+
 $$
 
   \hat{\mathbf n}\,dS=\pm\left(\frac{\partial \vec r}{\partial u}\times\frac{\partial \vec r}{\partial v}\right)\,du\,dv. \qquad (4.142)
-  
+
 $$
 
 
 - **Implicitly Defined Surfaces:** If the surface is given implicitly (e.g., $g(x,y,z)=0$) and a normal $\vec N$ is known, then the surface element can be expressed via projection:
-  
+
 $$
 
   \hat{\mathbf n}\,dS=\pm\frac{\vec N}{\vec N\cdot \hat{\mathbf k}}\;dx\,dy. \qquad (4.143)
-  
+
 $$
 
 
