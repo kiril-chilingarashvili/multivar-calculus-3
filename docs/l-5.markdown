@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title: Flux Through a Surface — Graphs and Parametrizations

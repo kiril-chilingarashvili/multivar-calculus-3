@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title: Flux, Vector Fields, and Normals — Notes

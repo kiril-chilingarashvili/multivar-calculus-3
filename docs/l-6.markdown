@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title: Divergence Theorem — Lecture & Recitation Notes
