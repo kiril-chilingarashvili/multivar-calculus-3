@@ -118,39 +118,39 @@ This theorem converts a surface (flux) integral over a closed surface into a vol
 Consider the sphere of radius $a$ centered at the origin.
 
 1. For $\vec F=z\,\hat{\mathbf k}$,
-   
+
 $$
 
    \operatorname{div}(z\,\hat{\mathbf k})=\frac{\partial z}{\partial z}=1.
-   
+
 $$
 
    Hence the flux through the sphere is
-   
+
 $$
 
    \iiint_V 1\,dV = \operatorname{Vol}(\text{sphere}) = \frac{4}{3}\pi a^3.
-   
+
 $$
 
 
 2. For $\vec F=x\,\hat{\mathbf i}+y\,\hat{\mathbf j}+z\,\hat{\mathbf k}$,
-   
+
 $$
 
    \operatorname{div}(\vec F)
    =\frac{\partial x}{\partial x}
     +\frac{\partial y}{\partial y}
     +\frac{\partial z}{\partial z}=3,
-   
+
 $$
 
    so the flux is
-   
+
 $$
 
    \iiint_V 3\,dV = 3\cdot\frac{4}{3}\pi a^3 = 4\pi a^3.
-   
+
 $$
 
 
@@ -313,29 +313,29 @@ For an incompressible fluid, any net outflow must come from **internal sources**
 The symbol $\nabla$ ("del") is used in multiple ways; context matters.
 
 - **Gradient** (acts on a scalar $f$; output is a vector):
-  
+
 $$
 
   \nabla f = \left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right). \tag{4.223}
-  
+
 $$
 
 
 - **Divergence** (dot with a vector field $\vec F=(P,Q,R)$; output is a scalar):
-  
+
 $$
 
   \nabla\cdot \vec F = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}. \tag{4.224}
-  
+
 $$
 
 
 - **Curl** (cross with a vector field; output is a vector):
-  
+
 $$
 
   \nabla\times \vec F. \tag{4.225}
-  
+
 $$
 
 
@@ -407,39 +407,39 @@ $$
 
 - **Top face** $z=z_2(x,y)$.
   For a surface $z=f(x,y)$, $\ \hat n\, dS = \big(-f_x,-f_y,1\big)\,dx\,dy$ with upward orientation. Thus
-  
+
 $$
 
   \hat n\, dS = \big(-\partial_x z_2,-\partial_y z_2,1\big)\,dx\,dy, \tag{4.234}
-  
+
 $$
 
   and with $\vec F=(0,0,R)$,
-  
+
 $$
 
   \iint_{\text{Top}}\vec F\cdot \hat n\, dS
   = \iint_{\text{Top}} R\,dx\,dy
   = \iint_{U} R\!\left(x,y,z_2(x,y)\right)\, dx\, dy. \tag{4.235–4.236}
-  
+
 $$
 
 
 - **Bottom face** $z=z_1(x,y)$ (outward normal points downward):
-  
+
 $$
 
   \hat n\, dS = \big(\partial_x z_1,\partial_y z_1,-1\big)\,dx\,dy, \tag{4.237}
-  
+
 $$
 
   hence
-  
+
 $$
 
   \iint_{\text{Bottom}}\vec F\cdot \hat n\, dS
   = \iint_{U} \!-R\!\left(x,y,z_1(x,y)\right)\, dx\, dy. \tag{4.238}
-  
+
 $$
 
 
@@ -567,20 +567,20 @@ $$
 
 
 - If $k$ is **constant**, this reduces to the standard diffusion/heat equation:
-  
+
 $$
 
   \frac{\partial u}{\partial t} = k\,\nabla^2 u.
-  
+
 $$
 
 
 - If $k=k(x,y,z)$ varies spatially, the more general form is
-  
+
 $$
 
   \frac{\partial u}{\partial t} = \nabla\cdot\!\big(k\,\nabla u\big).
-  
+
 $$
 
 
@@ -611,21 +611,21 @@ This completes the derivation of the diffusion (heat) equation from physical and
 Consider $u=u(x,y,z,t)$ as concentration (or temperature). Two key principles:
 
 1. **From Physics (Fick’s law):** Flow goes from high to low concentration, modeled by the flux
-   
+
 $$
 
    \vec F = -k\,\nabla u, \tag{4.253}
-   
+
 $$
 
    with diffusion coefficient $k>0$ (assumed constant).
 
 2. **From the Divergence Theorem / Conservation:** The divergence of $\vec F$ equals the **negative** time rate of change of $u$:
-   
+
 $$
 
    \operatorname{div}(\vec F) = -\frac{\partial u}{\partial t}. \tag{4.254}
-   
+
 $$
 
 
@@ -702,43 +702,43 @@ $$
 ## Summary
 
 - **Divergence Theorem (statement & interpretation):**
-  
+
 $$
 
   \iint_{S}\vec F\cdot \hat n\, dS = \iiint_{V}\operatorname{div}(\vec F)\, dV. \tag{4.267}
-  
+
 $$
 
   LHS = total outward **flux** across the closed surface $S$; RHS = total **expansion/contradiction** (net sources/sinks) inside $V$. Hence  
-  
+
 $$
 
   \text{Total Outflow}=\text{Net Generation (or Depletion)}. \tag{4.268}
-  
+
 $$
 
 
 - **Component formula and del notation:** For $\vec F=(P,Q,R)$,
-  
+
 $$
 
   \operatorname{div}(\vec F)=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}, \tag{4.269}
-  
+
 $$
 
   with
-  
+
 $$
 
   \nabla=\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right). \tag{4.270}
-  
+
 $$
 
 
 - **Diffusion (heat) equation via Divergence Theorem:** With $\vec F=-k\nabla u$,
-  
+
 $$
 
   \frac{\partial u}{\partial t}=k\,\nabla^{2}u. \tag{4.271}
-  
+
 $$
