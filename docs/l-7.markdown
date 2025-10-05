@@ -1,0 +1,425 @@
+---
+layout: page
+title: Line Integrals and Gradient Fields in 3D
+primary: true
+---
+
+
+
+This lecture introduces line integrals and the concept of work in three-dimensional space, explores how to identify gradient vector fields, and presents two methods for constructing potential functions. The material extends familiar ideas from the plane to vector fields and paths in 3 dimensions.
+
+## Objectives
+
+By the end of this lecture and recitation, you will be able to:
+
+- **Compute work as a line integral in three dimensions** by evaluating a vector field along a parametrized curve using the integral  
+  $$ \int_C \mathbf{F} \cdot d\mathbf{r}. $$
+
+- **Determine whether a vector field is a gradient field** by testing whether the vector field is the gradient of a scalar function, using the equality of mixed second-order partial derivatives for continuously differentiable functions or by recognizing when the associated differential form is exact.
+
+- **Construct a potential function from a gradient field** by performing term-by-term integration or by evaluating a line integral along a suitable path.
+
+---
+
+## A Comment on Notation
+
+By now you are likely used to seeing vector fields represented in different ways. Letters $P$, $Q$, and $R$ are often reserved for the components, so that we may write:
+
+$$
+\mathbf{F}(x, y, z) = (P(x, y, z), Q(x, y, z), R(x, y, z))
+$$
+
+Throughout this section we will be using the *subscript notation* when writing. That is, we will write:
+
+$$
+\mathbf{F}(x, y, z) = (F_x(x, y, z), F_y(x, y, z), F_z(x, y, z)).
+$$
+
+The reason for this adoption will become clear once we learn how to test for gradient fields. There is an excellent symmetry in these equations, and this symmetry can also be found in the equations for the *curl* of a vector field.
+
+Since it is difficult to write bold-faced characters on a chalk-board, the videos still use the arrow notation. The connection between the two is simply  
+$P = F_x$, $Q = F_y$, and $R = F_z$.
+
+Since we are using the subscript notation exclusively for this section, we will write out partial derivatives explicitly by writing $\partial F_x / \partial y$, for example.
+
+---
+
+## Line Integrals and Work in 3D
+
+Let $\mathbf{F} : \mathbb{R}^3 \to \mathbb{R}^3$ be a vector field in 3D space with components $F_x$, $F_y$, $F_z : \mathbb{R}^3 \to \mathbb{R}$. That is:
+
+$$
+\mathbf{F}(x, y, z)
+= (F_x(x, y, z), F_y(x, y, z), F_z(x, y, z))
+= F_x(x, y, z)\hat{\mathbf{x}} + F_y(x, y, z)\hat{\mathbf{y}} + F_z(x, y, z)\hat{\mathbf{z}},
+$$
+
+If $\mathbf{F}$ represents the force exerted on a particle, then the work done by the force field along the curve $C$ is defined by the line integral
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r}
+$$
+
+where $\mathbf{r} = (x, y, z)$ represents the position vector. The differential vector $d\mathbf{r}$ in three dimensions has components:
+
+$$
+d\mathbf{r} = (dx, dy, dz),
+$$
+
+and the dot product $\mathbf{F} \cdot d\mathbf{r}$ yields the integrand
+
+$$
+F_x\,dx + F_y\,dy + F_z\,dz.
+$$
+
+---
+
+## Example 20
+
+Let $\mathbf{F} = (yz, xz, xy)$ and consider the parametrization $\gamma(t) = (t^3, t^2, t)$, $t \in [0,1]$. Then:
+
+$$
+dx = 3t^2 dt, \quad dy = 2t dt, \quad dz = dt.
+$$
+
+Substitute into the line integral:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C yz\,dx + xz\,dy + xy\,dz
+= \int_0^1 (3t^5 + 2t^5 + t^5) dt = \int_0^1 6t^5 dt = 1.
+$$
+
+---
+
+## Example 21 – Piecewise Path
+
+Let $\mathbf{F}(x, y, z) = (yz, xz, xy)$ again. Compute $\int_{C'} \mathbf{F} \cdot d\mathbf{r}$ along the path composed of three segments:
+
+$C_1$: $(0,0,0)\to(1,0,0)$,  
+$C_2$: $(1,0,0)\to(1,1,0)$,  
+$C_3$: $(1,1,0)\to(1,1,1)$.
+
+Thus,
+
+$$
+\int_{C'} \mathbf{F} \cdot d\mathbf{r} = \int_{C_1}\mathbf{F}\cdot d\mathbf{r} + \int_{C_2}\mathbf{F}\cdot d\mathbf{r} + \int_{C_3}\mathbf{F}\cdot d\mathbf{r}.
+$$
+
+Along $C_1$ and $C_2$, $z=0$, so $\mathbf{F}\cdot d\mathbf{r}=0$. Hence:
+
+$$
+\int_{C_1}\mathbf{F}\cdot d\mathbf{r}=0, \quad \int_{C_2}\mathbf{F}\cdot d\mathbf{r}=0.
+$$
+
+Along $C_3$, $x=1$, $y=1$, $z$ from 0 to 1:
+
+$$
+\int_{C_3}\mathbf{F}\cdot d\mathbf{r} = \int_{C_3} xy\,dz = \int_0^1 dz = 1.
+$$
+
+Therefore,
+
+$$
+\int_{C'}\mathbf{F}\cdot d\mathbf{r}=0+0+1=1.
+$$
+
+---
+
+## Interpretation
+
+The total work along $C'$ equals that from the smooth curve $\gamma(t)=(t^3,t^2,t)$, confirming path-independence.  
+Thus, $\mathbf{F}$ is conservative and can be expressed as $\mathbf{F} = \nabla f$ for:
+
+$$
+f(x,y,z)=xyz.
+$$
+
+Then,
+
+$$
+\nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right) = (yz, xz, xy).
+$$
+
+Hence $\mathbf{F}$ matches $\nabla f$.  
+By the fundamental theorem for line integrals:
+
+$$
+\int_C \mathbf{F}\cdot d\mathbf{r} = f(P_1) - f(P_0).
+$$
+
+For $(0,0,0)$ to $(1,1,1)$:
+
+$$
+\int_C \nabla f \cdot d\mathbf{r} = f(1,1,1)-f(0,0,0)=1-0=1.
+$$
+
+---
+
+## Testing for Gradient Fields
+
+In two dimensions, $\mathbf{F}=(F_x,F_y)$ is a gradient field if:
+
+$$
+\frac{\partial F_y}{\partial x} = \frac{\partial F_x}{\partial y}.
+$$
+
+In three dimensions, $\mathbf{F}=(F_x,F_y,F_z)$ is conservative if:
+
+$$
+\mathbf{F} = \nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right),
+$$
+
+and the following equalities hold:
+
+$$
+\frac{\partial F_x}{\partial y} = \frac{\partial F_y}{\partial x}, \quad
+\frac{\partial F_x}{\partial z} = \frac{\partial F_z}{\partial x}, \quad
+\frac{\partial F_y}{\partial z} = \frac{\partial F_z}{\partial y}.
+$$
+
+These follow from the symmetry of mixed partials:
+
+$$
+\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}, \quad
+\frac{\partial^2 f}{\partial x \partial z} = \frac{\partial^2 f}{\partial z \partial x}, \quad
+\frac{\partial^2 f}{\partial y \partial z} = \frac{\partial^2 f}{\partial z \partial y}.
+$$
+
+Therefore, a vector field $\mathbf{F}$ is a gradient field if these three conditions hold throughout a simply connected domain.
+
+
+---
+
+## Exact Differentials and Gradient Fields
+
+A differential expression of the form
+
+$$
+F_x\,dx + F_y\,dy + F_z\,dz
+$$
+
+is said to be an *exact differential* if it equals the total differential $df$ of some scalar function $f(x, y, z)$, that is:
+
+$$
+df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\partial f}{\partial z}dz
+= F_x\,dx + F_y\,dy + F_z\,dz.
+$$
+
+In this case, we say that the form is exact, and the vector field $\mathbf{F} = (F_x, F_y, F_z)$ is a *gradient field*.
+
+---
+
+## Example 21: Determining Exactness
+
+Consider the differential form:
+
+$$
+axy\,dx + (x^2 + z^3)\,dy + (byz^2 - 4z^3)\,dz.
+$$
+
+We want to determine for which values of $a$ and $b$ this form is exact.  
+Equivalently, the corresponding vector field is:
+
+$$
+\mathbf{F}(x, y, z) = (F_x, F_y, F_z) = (axy, x^2 + z^3, byz^2 - 4z^3).
+$$
+
+We test for exactness by checking the mixed partials:
+
+$$
+\frac{\partial F_x}{\partial y} = \frac{\partial F_y}{\partial x}, \quad
+\frac{\partial F_x}{\partial z} = \frac{\partial F_z}{\partial x}, \quad
+\frac{\partial F_y}{\partial z} = \frac{\partial F_z}{\partial y}.
+$$
+
+### Checking the first condition:
+
+$$
+\frac{\partial F_x}{\partial y} = \frac{\partial}{\partial y}(axy) = ax, \quad
+\frac{\partial F_y}{\partial x} = \frac{\partial}{\partial x}(x^2 + z^3) = 2x.
+$$
+
+Equating gives $ax = 2x \Rightarrow a = 2$.
+
+### Checking the second condition:
+
+$$
+\frac{\partial F_x}{\partial z} = \frac{\partial}{\partial z}(axy) = 0, \quad
+\frac{\partial F_z}{\partial x} = \frac{\partial}{\partial x}(byz^2 - 4z^3) = 0.
+$$
+
+Condition satisfied automatically.
+
+### Checking the third condition:
+
+$$
+\frac{\partial F_y}{\partial z} = \frac{\partial}{\partial z}(x^2 + z^3) = 3z^2, \quad
+\frac{\partial F_z}{\partial y} = \frac{\partial}{\partial y}(byz^2 - 4z^3) = bz^2.
+$$
+
+Equating gives $3z^2 = bz^2 \Rightarrow b = 3$.
+
+### Conclusion
+
+The vector field
+
+$$
+\mathbf{F} = (axy, x^2 + z^3, byz^2 - 4z^3)
+$$
+
+is a gradient field if and only if
+
+$$
+a = 2, \quad b = 3.
+$$
+
+---
+
+## Finding a Potential Function
+
+To find a potential function $f(x, y, z)$ for a conservative vector field, we can use either of two methods.
+
+### Method 1: Line Integral Along a Path
+
+$$
+f(x_1, y_1, z_1) = \int_C \mathbf{F}\cdot d\mathbf{r} + \text{constant.}
+$$
+
+A common path $C$ is piecewise linear: along $x$, then $y$, then $z$ directions. This breaks the integral into simpler parts.
+
+### Method 2: Using Antiderivatives
+
+We solve for $f(x, y, z)$ such that
+
+$$
+\mathbf{F} = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\right).
+$$
+
+Using the previous example with $a=2$, $b=3$, we have:
+
+$$
+\frac{\partial f}{\partial x} = 2xy, \quad \frac{\partial f}{\partial y} = x^2 + z^3, \quad \frac{\partial f}{\partial z} = 3yz^2 - 4z^3.
+$$
+
+#### Step 1: Integrate $\partial f/\partial x$
+
+$$
+f(x, y, z) = \int 2xy\,dx = x^2y + g(y, z).
+$$
+
+#### Step 2: Differentiate and Match $\partial f/\partial y$
+
+$$
+\frac{\partial f}{\partial y} = x^2 + \frac{\partial g}{\partial y} = x^2 + z^3 \Rightarrow \frac{\partial g}{\partial y} = z^3.
+$$
+
+Integrating with respect to $y$:
+
+$$
+g(y, z) = yz^3 + h(z).
+$$
+
+#### Step 3: Differentiate and Match $\partial f/\partial z$
+
+$$
+f(x, y, z) = x^2y + yz^3 + h(z),
+$$
+
+$$
+\frac{\partial f}{\partial z} = 3yz^2 + h'(z) = 3yz^2 - 4z^3 \Rightarrow h'(z) = -4z^3.
+$$
+
+Integrating with respect to $z$:
+
+$$
+h(z) = -z^4 + C.
+$$
+
+### Final Expression for $f$
+
+$$
+f(x, y, z) = x^2y + yz^3 - z^4 + C.
+$$
+
+This is the scalar potential function for the vector field.
+
+---
+
+### Recap
+
+1. Integrate $\partial f/\partial x$ to get $f$ up to a function of $y$ and $z$.  
+2. Differentiate with respect to $y$ and match $\partial f/\partial y$ to find the missing term.  
+3. Compare $\partial f/\partial z$ to finalize $f$.  
+
+This systematic method yields an explicit formula for $f$.
+
+## Summary
+
+### Work as a line integral and its computation in three dimensions
+
+In three-dimensional space, the work done by a vector field  $ \mathbf{F} = (F_x, F_y, F_z) $
+
+along a curve \( C \) is given by the line integral
+
+$$
+\text{Work} = \int_C \mathbf{F} \cdot d\mathbf{r},
+\tag{5.70}
+$$
+
+where  
+
+$$
+d\mathbf{r} = (dx, dy, dz),
+\tag{5.71}
+$$  
+
+and the integrand becomes  
+
+$$
+\mathbf{F} \cdot d\mathbf{r} = F_x\,dx + F_y\,dy + F_z\,dz.
+\tag{5.72}
+$$  
+
+This integral is computed by parametrizing the curve and expressing all components and differentials in terms of a single parameter, reducing the problem to a standard single-variable integral.
+
+---
+
+### Test for gradient vector fields and exact differential forms
+
+A vector field $\mathbf{F} = (F_x, F_y, F_z) $
+
+is a **gradient vector field** if the mixed partial derivative conditions hold:
+
+$$
+\frac{\partial F_x}{\partial y} = \frac{\partial F_y}{\partial x},
+$$
+
+$$
+\frac{\partial F_x}{\partial z} = \frac{\partial F_z}{\partial x},
+$$
+
+$$
+\frac{\partial F_y}{\partial z} = \frac{\partial F_z}{\partial y},
+\tag{5.73}
+$$  
+
+throughout a simply connected domain.  
+This is equivalent to requiring the differential form  
+
+$$
+\mathbf{F} \cdot d\mathbf{r} = F_x\,dx + F_y\,dy + F_z\,dz,
+\tag{5.74}
+$$  
+
+to be **exact**, meaning it equals the total differential \( df \) of some scalar function \( f(x, y, z) \).
+
+---
+
+### Constructing a potential function from a gradient vector field
+
+A potential function for a gradient vector field can be found by either of two methods:
+
+1. **Integrating one component at a time** and determining the remaining terms by matching partial derivatives; or  
+2. **Evaluating a line integral** of the vector field along a piecewise-smooth path from a reference point (often the origin) to the point of interest.
+
+Both methods ensure the result matches the gradient of a scalar function.
