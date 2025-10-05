@@ -1,0 +1,420 @@
+---
+layout: page
+title: Curl and Stokes' Theorem
+primary: true
+---
+
+This lecture covers the definition and geometric meaning of curl in 3D, its relationship to conservative vector fields, and the statement and interpretation of Stokes' Theorem.
+
+## Objectives
+
+By the end of this lecture and recitation, you will be able to:
+
+- Define the curl of a vector field in three dimensions and compute it using the determinant form of the del cross product.
+- Use curl to determine whether a 3D vector field is conservative by testing whether it does nonzero work around small closed curves.
+- Describe how, under appropriate conditions, Stokes' Theorem shows that the work done by a vector field along a closed curve equals the flux of its curl through any surface bounded by the curve.
+- Apply Stokes' Theorem in 3D by verifying orientation compatibility and recognizing its connection to Green's Theorem in 2D through piecewise planar surfaces.
+
+## Definition of Curl
+
+The next major concept in vector calculus is the **curl** of a vector field. This concept leads naturally to the generalization of Green's theorem in three dimensions, known as **Stokes' Theorem**.
+
+### Definition
+
+The curl of a vector field $\mathbf{F} : \mathbb{R}^3 \to \mathbb{R}^3$ is given by:
+
+$$
+\mathbf{F}(x, y, z) = (F_x(x, y, z), F_y(x, y, z), F_z(x, y, z))
+$$
+
+where $F_x, F_y,$ and $F_z$ are the component scalar functions. The vector field $\text{curl}(\mathbf{F})$ is given by:
+
+$$
+\text{curl}(\mathbf{F}) = \left( 
+\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}, 
+\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}, 
+\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}
+\right)
+$$
+
+It is common to use the del operator $\nabla$, writing:
+
+$$
+\text{curl}(\mathbf{F}) = \nabla \times \mathbf{F}
+$$
+
+In three-dimensional space, the curl of a vector field is itself a vector field, whereas in two dimensions (where the $z$ component is 0), the curl reduces to a scalar function representing the $z$-component of the three-dimensional curl:
+
+$$
+(0, 0, \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y})
+$$
+
+### Theorem 9
+
+If $\mathbf{F} : \mathbb{R}^3 \to \mathbb{R}^3$ is continuously differentiable and defined on a simply connected region, then $\mathbf{F}$ is a gradient vector field (meaning there is a scalar function $f : \mathbb{R}^3 \to \mathbb{R}$ with $\mathbf{F} = \nabla f$) if and only if
+
+$$
+\nabla \times \mathbf{F} = \mathbf{0}
+$$
+
+### Determinant Form
+
+A systematic way to compute the curl is to use the symbolic determinant form of a cross product:
+
+$$
+\nabla \times \mathbf{F} =
+\det \begin{pmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+F_x & F_y & F_z
+\end{pmatrix}
+$$
+
+### Expanded Components
+
+$$
+\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})
+$$
+
+Expanding the determinant yields:
+
+$$
+\begin{aligned}
+\hat{i}\text{-component:} &= \left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \right) \\
+\hat{j}\text{-component:} &= -\left( \frac{\partial F_z}{\partial x} - \frac{\partial F_x}{\partial z} \right) \\
+\hat{k}\text{-component:} &= \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right)
+\end{aligned}
+$$
+
+Combining these components gives:
+
+$$
+\nabla \times \mathbf{F} =
+\left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \right) \hat{i} +
+\left( \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \right) \hat{j} +
+\left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) \hat{k}
+$$
+
+### Example: Rotational Velocity
+
+If $\mathbf{F}(x, y, z) = (-\omega y, \omega x, 0)$, then:
+
+$$
+\nabla \times \mathbf{F} = (0, 0, 2\omega)
+$$
+
+showing that the curl vector points along the axis of rotation, with magnitude equal to twice the angular velocity.
+
+### Example: Expansion Field
+
+If $\mathbf{F}(x, y, z) = (x, 0, 0)$, then the curl is zero, but divergence is $\nabla \cdot \mathbf{F} = 1$, reflecting expansion along the $x$-axis.
+
+## Stokes' Theorem
+
+In three dimensions, Stokes' Theorem relates the work done by a vector field along a closed curve to the flux of its curl through a surface bounded by that curve:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS
+$$
+
+where $\hat{n}$ is the unit normal vector to the surface $S$.
+
+### Surface Choice
+
+The surface $S$ may be chosen freely as long as it is smooth and oriented consistently with $C$. Examples include:
+
+- A flat disk in the $xy$-plane
+- A hemispherical cap above the plane
+- Any smooth surface bounded by $C$
+
+## Orientation Compatibility
+
+To apply Stokes' Theorem correctly, the orientation of the curve $C$ and the surface $S$ must be compatible.
+
+If a person walks along $C$ in the positive direction with $S$ on their left, then the upward direction orthogonal to $S$ defines the direction of $\hat{n}$.
+
+This can be remembered by the **right-hand rule**:
+
+- Thumb: direction of traversal along $C$
+- Index finger: into the interior of $S$
+- Middle finger: perpendicular, points along $\hat{n}$
+
+## Examples
+
+1. **Conical Surface**: For a cone bounded by circle $C$, walking counterclockwise inside the cone keeps the surface on the left. The normal vector points upward and inward.
+2. **Cylindrical Surface**: For a cylinder with top $C$ and bottom $C'$, outward normals mean $C'$ is traversed counterclockwise and $C$ clockwise, maintaining consistent orientation.
+
+
+## Green's Theorem as a Special Case of Stokes' Theorem
+
+Consider the case where the curve $C$ lies entirely in the $xy$-plane and is oriented counterclockwise. The surface $S$ bounded by $C$ can then be taken as the region in the $xy$-plane enclosed by $C$.
+
+Let $\mathbf{F} = (F_x, F_y, F_z)$ be a vector field in $\mathbb{R}^3$, and consider the line integral:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C F_x \, dx + F_y \, dy + F_z \, dz.
+$$
+
+Since $C$ lies in the $xy$-plane, $z = 0$ and $dz = 0$, so the integral reduces to:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C F_x \, dx + F_y \, dy.
+$$
+
+By Stokes' Theorem,
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS.
+$$
+
+For a counterclockwise traversal in the $xy$-plane, the normal vector is upward, $\hat{n} = \hat{k}$, and we obtain:
+
+$$
+\iint_S (\nabla \times \mathbf{F}) \cdot \hat{k} \, dS = \iint_S \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) dx \, dy.
+$$
+
+Therefore,
+
+$$
+\int_C F_x \, dx + F_y \, dy = \iint_S \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) dx \, dy,
+$$
+
+which is exactly **Green's Theorem** in the plane.
+
+## Why Stokes' Theorem Holds
+
+Greens Theorem applies when both $C$ and $S$ lie in the $xy$-plane. If instead they lie in the $yz$- or $xz$-plane, the same argument holds, just with a rotated coordinate system. In general, curl, line integrals, and surface integrals are geometric quantities that transform consistently under coordinate changes. Thus, Stokes Theorem remains valid in any oriented plane.
+
+A full proof proceeds by subdividing the surface $S$ into many small, approximately flat pieces. For each small piece, the planar version of Stokes Theorem applies. Adding all these contributions together and noting that the internal boundary integrals cancel yields the general version for curved surfaces.
+
+## Example: Applying Stokes' Theorem
+
+Consider the vector field:
+
+$$
+\mathbf{F} = z \hat{i} + x \hat{j} + y \hat{k}.
+$$
+
+### Line Integral
+
+Compute the work done by $\mathbf{F}$ along the unit circle in the $xy$-plane:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C x \, dy.
+$$
+
+With $x = \cos t$, $y = \sin t$, and $dy = \cos t \, dt$, for $0 \le t \le 2\pi$, we get:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_0^{2\pi} \cos^2 t \, dt = \pi.
+$$
+
+### Surface Integral
+
+Let the surface $S$ be the portion of the paraboloid $z = 1 - x^2 - y^2$ bounded by the same circle. The curl of $\mathbf{F}$ is:
+
+$$
+\nabla \times \mathbf{F} = (1, 1, 1).
+$$
+
+The upward-oriented surface element is:
+
+$$
+\hat{n} \, dS = (2x, 2y, 1) \, dx \, dy.
+$$
+
+Thus, the flux is:
+
+$$
+\iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS = \iint_{D^2} (2x + 2y + 1) \, dx \, dy.
+$$
+
+Because the region is symmetric, the integrals of $x$ and $y$ vanish, leaving:
+
+$$
+\iint_{D^2} 1 \, dx \, dy = \pi.
+$$
+
+Therefore, Stokes' Theorem confirms that the surface and line integrals are equal.
+
+## Summary
+
+1. **Curl Definition:**  
+   $$
+   \nabla \times \mathbf{F} = \left( 
+   \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z},
+   \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x},
+   \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}
+   \right)
+   $$
+
+2. **Conservative Fields:**  
+   $\mathbf{F}$ is conservative if and only if $\nabla \times \mathbf{F} = 0$.
+
+3. **Stokes' Theorem:**  
+   $$
+   \int_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS.
+   $$
+
+4. **Orientation:**  
+   Right-hand rule ensures compatibility between $C$ and $S$.
+
+
+## Example: Stokes' Theorem vs Green's Theorem
+
+Consider the following example, which compares Stokes' Theorem with Green's Theorem. The aim is to demonstrate that Green's Theorem, as it applies to work in the plane, is a special case of Stokes' Theorem.
+
+Suppose we consider the special case where the curve $C$ lies entirely in the $xy$-plane and is oriented counterclockwise.
+
+To define the surface $S$ bounded by the curve $C$, recall that Stokes' Theorem permits any surface with boundary $C$. For direct comparison with Green's Theorem, we take $S$ to be the region in the $xy$-plane enclosed by $C$.
+
+Let $\mathbf{F} = (F_x, F_y, F_z)$ be a vector field in $\mathbb{R}^3$, and consider the line integral of $\mathbf{F}$ along $C$:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C F_x \, dx + F_y \, dy + F_z \, dz.
+$$
+
+Since $C$ lies in the $xy$-plane, we have $z = 0$ along $C$, and thus $dz = 0$. Therefore, the line integral simplifies to:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C F_x \, dx + F_y \, dy.
+$$
+
+Applying Stokes' Theorem, this line integral equals the surface integral over $S$ of the curl of $\mathbf{F}$ dotted with the unit normal vector $\hat{n}$:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS.
+$$
+
+We must determine the correct orientation of $\hat{n}$. Since $C$ is traversed counterclockwise when viewed from above, the upward-pointing normal vector $\hat{n} = \hat{k}$ is compatible with this orientation. Thus, the surface integral becomes:
+
+$$
+\iint_S (\nabla \times \mathbf{F}) \cdot \hat{k} \, dS.
+$$
+
+But $(\nabla \times \mathbf{F}) \cdot \hat{k}$ is simply the $z$-component of the curl, which is
+
+$$
+\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}.
+$$
+
+Since the surface $S$ lies in the $xy$-plane, the surface element $dS$ reduces to $dx \, dy$. Hence,
+
+$$
+\iint_S \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) dx \, dy.
+$$
+
+Therefore, putting everything together,
+
+$$
+\int_C F_x \, dx + F_y \, dy = \iint_S \left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right) dx \, dy.
+$$
+
+This is precisely **Green's Theorem** in the plane, often written as
+
+$$
+\int_C M \, dx + N \, dy = \iint_S \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} \right) dx \, dy.
+$$
+
+Hence, Green's Theorem is indeed a special case of Stokes' Theorem.
+
+---
+
+## Why Stokes' Theorem Holds
+
+To understand why Stokes' Theorem holds, recall that when $C$ and $S$ lie in the $xy$-plane, the theorem reduces to Green's Theorem. If instead they lie in the $yz$- or $xz$-plane, an analogous result holds with coordinate labels adjusted. The theorem is **coordinate-independent**, meaning that curl, line, and surface integrals transform consistently under rotation of axes.
+
+In general, the proof involves subdividing the surface $S$ into many small regions, each approximately flat. On each small region, Green's Theorem applies. When summing over all regions, internal edges cancel because they are traversed in opposite directions. Only the outer boundary $C$ remains, yielding Stokes' Theorem in its general form.
+
+---
+
+## Example: Verification of Stokes' Theorem
+
+Consider the vector field
+
+$$
+\mathbf{F} = z\hat{i} + x\hat{j} + y\hat{k}.
+$$
+
+We compute the work done by this field along the unit circle in the $xy$-plane, oriented counterclockwise.
+
+### Step 1: Line Integral
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C x \, dy.
+$$
+
+For the parametrization $x = \cos t$, $y = \sin t$, and $dy = \cos t \, dt$, $0 \le t \le 2\pi$:
+
+$$
+\int_C \mathbf{F} \cdot d\mathbf{r} = \int_0^{2\pi} \cos^2 t \, dt = \pi.
+$$
+
+### Step 2: Surface Integral via Stokes' Theorem
+
+Now, let $S$ be the portion of the paraboloid $z = 1 - x^2 - y^2$ bounded by the same circle.
+
+The curl of $\mathbf{F}$ is
+
+$$
+\nabla \times \mathbf{F} = (1, 1, 1).
+$$
+
+For the upward orientation, the surface element is
+
+$$
+\hat{n} \, dS = (2x, 2y, 1) \, dx \, dy.
+$$
+
+Hence,
+
+$$
+\iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS = \iint_{D^2} (2x + 2y + 1) \, dx \, dy.
+$$
+
+Because $x$ and $y$ integrate to zero over the symmetric disk $D^2$, we have
+
+$$
+\iint_{D^2} 1 \, dx \, dy = \pi.
+$$
+
+Thus, both computations agree, confirming Stokes' Theorem.
+
+---
+
+## Summary and Key Points
+
+1. **Curl: Definition and Meaning**  
+   The curl of a vector field $\mathbf{F} = (F_x, F_y, F_z)$ is given by
+
+   $$
+   \nabla \times \mathbf{F} =
+   \left( 
+   \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z},
+   \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x},
+   \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}
+   \right).
+   $$
+
+   It measures local rotation in a field. A zero curl means no circulation (the field is irrotational).
+
+2. **Conservative Fields**  
+   A vector field $\mathbf{F}$ is conservative if and only if $\nabla \times \mathbf{F} = 0$, assuming the region is simply connected. This ensures that $\mathbf{F} = \nabla f$ for some scalar potential $f$.
+
+3. **Stokes' Theorem**  
+   Generalizes Green's Theorem to 3D:
+
+   $$
+   \int_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS.
+   $$
+
+   The surface $S$ can be any smooth oriented surface bounded by $C$.
+
+4. **Orientation and Proof Sketch**  
+   Correct orientation is ensured via the right-hand rule:  
+   - Thumb: along $C$  
+   - Index: into the surface  
+   - Middle: direction of $\hat{n}$  
+
+   The proof idea divides $S$ into small flat patches where Greens Theorem applies, summing them yields the general result.
+
