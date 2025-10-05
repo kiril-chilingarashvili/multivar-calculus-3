@@ -1,0 +1,201 @@
+---
+layout: page
+title: Stokes' Theorem
+primary: true
+---
+
+This lecture explores the meaning and implications of **Stokes' Theorem**, which relates line integrals around closed curves to surface integrals of the curl of a vector field. It also examines when a vector field is conservative, the role of *simple connectivity*, and why the result of a Stokes-type computation does not depend on the surface chosen.
+
+### Objectives
+
+By the end of this lecture and recitation, you will be able to:
+
+- **Apply** Stokes' Theorem to compute a line integral by evaluating a surface integral of the curl of a vector field.
+- **Identify** when a vector field is conservative based on its curl and whether the region is simply connected.
+- **Explain** the role of simple connectivity in ensuring that a curl-free vector field is conservative.
+- **Justify** why different surfaces bounded by the same curve yield the same result in Stokes' Theorem under appropriate conditions.
+
+---
+
+### Statement of Stokes' Theorem
+
+If a closed curve $C$ bounds a surface $S$, and the curve and surface are oriented compatibly, then the line integral of a vector field $\mathbf{F}$ along $C$ can be expressed instead as a surface integral—specifically, as the flux of the vector field $\nabla \times \mathbf{F}$ through $S$.
+
+$$
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS
+$$
+
+Line integrals are evaluated along a curve by expressing all quantities in terms of a single parameter, leading to an ordinary one-variable integral. Surface integrals, in contrast, depend on two parameters and involve the dot product of $\nabla \times \mathbf{F}$ with $\hat{n} dS$.
+
+---
+
+### Simple Connectivity and Conservative Fields
+
+If a vector field is defined on a simply connected region and its curl is zero, then it is a gradient field. In such cases, the line integral of the vector field is independent of the path taken between two points.
+
+A region in space is *simply connected* if every closed curve within the region bounds a surface that lies entirely within the region.
+
+- **Example 1:** Three-dimensional space with the origin removed is still simply connected, as any curve avoiding the origin can be continuously deformed to lie on a surface within the region.
+- **Example 2:** Space with the $z$-axis removed is **not** simply connected. For instance, a circle in the $xy$-plane around the origin cannot bound a surface that remains entirely within the region (without intersecting the $z$-axis).
+
+This lack of simple connectivity can cause vector fields with zero curl to fail to be conservative, as line integrals around paths encircling the missing axis can yield different values.
+
+---
+
+### Theorems on Curl and Gradient Fields
+
+**Theorem 11:**  If $\mathbf{F} = \nabla f$ (where $f$ is continuously differentiable), then:
+
+$$
+\nabla \times \mathbf{F} = 0
+$$
+
+This follows from the equality of mixed second partial derivatives.
+
+**Theorem 12:**  If $\mathbf{F}$ is defined in a simply connected region and $\nabla \times \mathbf{F} = 0$, then $\mathbf{F}$ is a gradient field.
+
+This implies that the line integral of $\mathbf{F}$ is path-independent, and a potential function $f$ exists such that $\mathbf{F} = \nabla f$.
+
+---
+
+### Path Independence Proof via Stokes' Theorem
+
+Assume $\nabla \times \mathbf{F} = 0$, and let $C_1$ and $C_2$ be two paths from a point $P_0$ to a point $P_1$. Consider the difference:
+
+$$
+\int_{C_1} \mathbf{F} \cdot d\mathbf{r} - \int_{C_2} \mathbf{F} \cdot d\mathbf{r}
+$$
+
+This corresponds to the integral over the closed curve $C$ formed by following $C_1$ and then $C_2$ in reverse:
+
+$$
+\oint_C \mathbf{F} \cdot d\mathbf{r}
+$$
+
+By Stokes' Theorem:
+
+$$
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS
+$$
+
+Since $\nabla \times \mathbf{F} = 0$, the surface integral is zero:
+
+$$
+\iint_S 0 \cdot \hat{n} \, dS = 0
+$$
+
+Hence,
+
+$$
+\int_{C_1} \mathbf{F} \cdot d\mathbf{r} = \int_{C_2} \mathbf{F} \cdot d\mathbf{r}
+$$
+
+Thus, line integrals of $\mathbf{F}$ are path-independent. This argument requires that the region be simply connected to ensure the existence of a surface $S$ bounded by $C$.
+
+---
+
+### Topological Context: Simple Connectivity
+
+Simple connectivity is part of a broader topological framework. In topology, whether a closed loop on a surface bounds a region plays a key role in classifying surfaces.
+
+- **Sphere:** Simply connected. Every closed curve bounds a surface on the sphere.
+- **Torus (doughnut surface):** Not simply connected. A loop around the central hole cannot bound any surface entirely within the torus.
+
+Each independent, non-bounding loop is a *topological invariant* that helps classify surfaces. For a torus, there are two such independent loops.
+
+---
+
+### Non-Orientable Surfaces and Stokes' Theorem
+
+Consider a curve that spirals around the $z$-axis twice with a half-twist. A Möbius strip could be constructed as a surface bounded by this curve, but it presents a problem: it is **non-orientable**.
+
+A Möbius strip has only one side and no consistent normal vector $\hat{n}$ across its entire surface. Since Stokes' Theorem requires a globally defined orientation, it cannot be applied to non-orientable surfaces like the Möbius strip or Klein bottle.
+
+However, one can instead construct an **orientable surface** bounded by the same curve—for example, by combining a hemisphere with a narrow twisted extension. This alternative surface allows Stokes' Theorem to be applied properly, since it provides a consistent orientation.
+
+---
+
+### Surface Independence in Stokes' Theorem
+
+A natural question arises: why does it not matter which surface we choose when applying Stokes' Theorem? It seems we can select any surface bounded by a given curve $C$, and the result remains unchanged.
+
+Suppose we have a curve $C$ in space and choose two surfaces, $S_1$ and $S_2$, both bounded by $C$. Then:
+
+$$
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_{S_1} (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS = \iint_{S_2} (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS
+$$
+
+This implies that the flux of the curl of a vector field through a surface depends only on its boundary, not the specific surface chosen.
+
+To see why, consider the difference:
+
+$$
+\iint_{S_1} (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS - \iint_{S_2} (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS
+$$
+
+Let $S$ be the closed surface formed by $S_1$ (positive orientation) and $S_2$ (negative orientation). By the Divergence Theorem:
+
+$$
+\iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS = \iiint_V \nabla \cdot (\nabla \times \mathbf{F}) \, dV
+$$
+
+Since for any smooth vector field $\mathbf{F}$,
+
+$$
+\nabla \cdot (\nabla \times \mathbf{F}) = 0,
+$$
+
+we conclude that the surface integrals are equal. Hence, Stokes' Theorem is independent of the chosen surface.
+
+Verification:
+
+Let $\mathbf{F} = (F_x, F_y, F_z)$. Then
+
+$$
+\nabla \times \mathbf{F} = \left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}, \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}, \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right)
+$$
+
+Taking the divergence:
+
+$$
+\nabla \cdot (\nabla \times \mathbf{F}) = \frac{\partial}{\partial x}\left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \right) + \frac{\partial}{\partial y}\left( \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \right) + \frac{\partial}{\partial z}\left( \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right)
+$$
+
+Simplifying:
+
+$$
+\frac{\partial^2 F_z}{\partial y \partial x} - \frac{\partial^2 F_y}{\partial z \partial x} + \frac{\partial^2 F_x}{\partial z \partial y} - \frac{\partial^2 F_z}{\partial x \partial y} + \frac{\partial^2 F_y}{\partial x \partial z} - \frac{\partial^2 F_x}{\partial y \partial z} = 0
+$$
+
+This vanishes due to the equality of mixed partial derivatives.
+
+---
+
+### Geometric Interpretation
+
+This can be seen geometrically: for two vectors $\mathbf{u}$ and $\mathbf{v}$,
+
+$$
+\mathbf{u} \cdot (\mathbf{u} \times \mathbf{v}) = 0
+$$
+
+since $\mathbf{u} \times \mathbf{v}$ is perpendicular to $\mathbf{u}$. Analogously, $\nabla \cdot (\nabla \times \mathbf{F}) = 0$.
+
+---
+
+### Summary of Key Ideas
+
+1. **Stokes' Theorem Connects Line and Surface Integrals**
+   $$
+   \oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \hat{n} \, dS
+   $$
+
+2. **Zero Curl Implies Path Independence**
+   In simply connected regions, if $\nabla \times \mathbf{F} = 0$, then $\mathbf{F}$ is conservative.
+
+3. **Role of Simple Connectivity**
+   Ensures that every loop bounds a surface entirely within the region, guaranteeing path independence.
+
+4. **Surface Independence**
+   The result of Stokes' Theorem depends only on the boundary curve $C$, not the specific surface bounded by it.
+
